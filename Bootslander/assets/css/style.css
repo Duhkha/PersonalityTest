@@ -1,10 +1,7 @@
-/**
-* Template Name: Bootslander
-* Updated: Mar 10 2023 with Bootstrap v5.2.3
-* Template URL: https://bootstrapmade.com/bootslander-free-bootstrap-landing-page-template/
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
+/*--------------------------------------------------------------
+# INFO
+ - Ilma: U comment je ono što nismo koristili; naknadno možemo staviti komentare ako uočimo da je nešto viška
+--------------------------------------------------------------*/
 
 /*--------------------------------------------------------------
 # General
@@ -956,6 +953,7 @@ section {
 /*--------------------------------------------------------------
 # Gallery
 --------------------------------------------------------------*/
+/*
 .gallery .gallery-item {
   overflow: hidden;
   border-right: 3px solid #fff;
@@ -969,7 +967,7 @@ section {
 .gallery .gallery-item:hover img {
   transform: scale(1.1);
 }
-
+*/
 /*--------------------------------------------------------------
 # Testimonials
 --------------------------------------------------------------*/
@@ -1081,6 +1079,7 @@ section {
 /*--------------------------------------------------------------
 # Team
 --------------------------------------------------------------*/
+/*
 .team {
   background: #fff;
 }
@@ -1159,10 +1158,11 @@ section {
   font-size: 16px;
   margin: 0 2px;
 }
-
+*/
 /*--------------------------------------------------------------
 # Pricing
 --------------------------------------------------------------*/
+/*
 .pricing .box {
   padding: 20px;
   background: #fff;
@@ -1269,6 +1269,7 @@ section {
   background: #1acc8d;
   color: #fff;
 }
+*/
 
 /*--------------------------------------------------------------
 # F.A.Q
@@ -1355,6 +1356,7 @@ section {
 /*--------------------------------------------------------------
 # Contact
 --------------------------------------------------------------*/
+/*
 .contact .info {
   width: 100%;
   background: #fff;
@@ -1488,7 +1490,7 @@ section {
     transform: rotate(360deg);
   }
 }
-
+*/
 /*--------------------------------------------------------------
 # Footer
 --------------------------------------------------------------*/
