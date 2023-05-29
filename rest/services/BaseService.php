@@ -2,6 +2,7 @@
 
 class BaseService{
     private $dao;
+    
     public function __construct($dao){
         $this->dao=$dao;
     }
