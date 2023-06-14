@@ -1,10 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-<!--INFO
-- Ilma: U comment je ono što nismo koristili; naknadno možemo staviti komentare ako uočimo da je nešto viška
-- Ilma: Treba se dodati Test i napraviti zaseban izgled, ostali dijelovi su gotovi
-- Ilma: pogledati newsletter
--->
+
+<!--HEAD SECTION-->
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
@@ -23,7 +20,7 @@
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
-  <!-- Vendor CSS Files ???-->
+  <!-- Vendor CSS Files - DOLAZI UZ BOOTSTRAP TEMPLATE NE DIRAJ-->
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
@@ -34,21 +31,25 @@
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
-  <link rel="stylesheet" href="Frontend/assets/css/style.css"> <!--import css to html-->
-  
+  <link rel="stylesheet" href="assets/css/style.css"> <!--import css to html-->
+  <!--<link rel="stylesheet" href="assets/css/custom.css">-->
+  <!--<link rel="stylesheet" href="assets/css/forms.css">-->
+  <link rel="stylesheet" href="assets/css/spapp.css">
+
+  <script src="config.js"></script>
 
 </head>
 
-<body>
 
+
+<!--BODY SECTION-->
+<body>
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top d-flex align-items-center header-transparent">
     <div class="container d-flex align-items-center justify-content-between">
 
       <div class="logo">
         <h1><a href="index.html"><span>Tech Persona</span></a></h1>
-        <!-- Uncomment below if you prefer to use an image logo -->
-        <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
       </div>
 
       <nav id="navbar" class="navbar">
@@ -86,28 +87,6 @@
 
     </div>
   </header><!-- End Header -->
-
-
-<!--spapp--><!--
-<main id="spapp" role="main">
-  <section id="test" data-load="test.html"></section>
-  <section id="types" data-load="types.html"></section>
-  <section id="features" data-load="features.html"></section>
-  <section id="faq" data-load="faq.html"></section>
-  <section id="about" data-load="about.html"></section>
-  <section id="hero" data-load="hero.html"></section>
-</main>-->
-<!--spapp end-->
-<!--
-var main =
-          '<section id="test">Highcharts</section>' +
-          '<section id="types">Highcharts</section>' +
-          '<section id="features"><h1>Datatable</h1></section>' +
-          '<section id="faq"><h1>Example 1</h1></section>' +
-          '<section id="about"><h1>Example 2</h1></section>' +
-          '<section id="hero"><h1>Form</h1></section>';
-  $("#spapp").html(main);-->
-  <!-- ======= Hero Section ======= -->
 
   <section id="hero">
     <div class="container">
@@ -706,11 +685,10 @@ var main =
   <!-- ======= End of Project Manager ======= -->
 
 
-
         <!-- ======= Counts Section ======= -->
-        <section id="features" class="counts">
+<!--        <section id="features" class="counts">     -->
           <!-- <section id="counts" class="counts">-->
-             <div class="container">
+<!--             <div class="container">
        
                <div class="row" data-aos="fade-up">
        
@@ -749,7 +727,9 @@ var main =
                </div>
        
              </div>
-           </section><!-- End Counts Section -->
+           </section>
+          -->
+           <!-- End Counts Section -->
 
     <!-- ======= Testimonials Section ======= -->
     <section id="features" class="testimonials">
@@ -900,70 +880,80 @@ var main =
         </section>
         <!-- End About Section -->
         
-  
 
   </main><!-- End #main -->
 
 
-  <!-- ======= Footer ======= -->
-  <footer id="footer">
-    <div class="footer-top">
-      <div class="container">
-        <div class="row">
-<!--col-lg-4 5-->
-          <div class="col-lg-4 col-sm-4">
-            <div class="footer-info">
-              <h3>Tech Persona</h3>
-              <p class="pb-3"><em>Uncover Your Tech Traits with Our Cutting-Edge Personality Test!</em></p>
-              <p>
-                A108 Adam Street <br>
-                NY 535022, USA<br><br>
-                <strong>Phone:</strong> +1 5589 55488 55<br>
-                <strong>Email:</strong> info@example.com<br>
-              </p>
-            </div>
-          </div>
 
-          <div class="col-lg-4 col-sm-4 footer-links">
-            <h4>Useful Links</h4>
-            <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#test">Take Test</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#features">Features</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
-            </ul>
+<!-- ======= Footer ======= -->
+<footer id="footer">
+  <div class="footer-top">
+    <div class="container text-center">
+      <div class="row justify-content-center">
+        <div class="col-lg-4 col-sm-12">
+          <div class="footer-info">
+            <h3>Tech Persona</h3>
+            <p class="pb-3"><em>Uncover Your Tech Traits with Our Cutting-Edge Personality Test!</em></p>
+            <p>
+              A108 Adam Street <br>
+              NY 535022, USA<br><br>
+              <strong>Phone:</strong> +1 5589 55488 55<br>
+              <strong>Email:</strong> info@example.com<br>
+            </p>
           </div>
-          <div class="col-lg-4 col-sm-4 footer-newsletter">
-            <h4>Our Newsletter</h4>
-            <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
-            <form action="" method="post">
-              <input type="email" name="email"><input type="submit" value="Subscribe">
-            </form>
+        </div>
 
+        <div class="col-lg-4 col-sm-12 footer-links">
+          <h4>Useful Links</h4>
+          <ul>
+            <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="#">Take Test</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="#">Features</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-4 col-sm-12 footer-social">
+          <h4>Follow Us</h4>
+          <div class="social-links">
+            <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+            <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+            <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+            <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+            <a href="#" class="youtube"><i class="bx bxl-youtube"></i></a>
           </div>
-
         </div>
       </div>
     </div>
-
-    <div class="container">
-      <div class="copyright">
-        &copy; Copyright <strong><span>Tech Persona</span></strong>. All Rights Reserved
-      </div>
-      <div class="credits">
-        <!-- All the links in the footer should remain intact. -->
-        <!-- You can delete the links only if you purchased the pro version. -->
-        <!-- Licensing information: https://bootstrapmade.com/license/ -->
-        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/bootslander-free-bootstrap-landing-page-template/ -->
-        Designed by <!--<a href="https://bootstrapmade.com/">--> Personality Test Team</a>
-      </div>
+  </div>
+  
+  <div class="container">
+    <div class="copyright">
+      &copy; Copyright <strong><span>Tech Persona</span></strong>. All Rights Reserved
     </div>
-  </footer><!-- End Footer -->
+    <div class="credits">
+      Designed by Personality Test Team</a>
+    </div>
+  </div>
+</footer>
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
   <div id="preloader"></div>
 
+
+<script>
+/*AJAX request to get*/
+//console.log(REST_URL);
+$.get(REST_URL+"users", function(data){
+  console.log(data);
+})
+
+</script>
+
+
+
+<!--JS SCRIPTS-->
   <!-- Vendor JS Files -->
   <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
@@ -974,7 +964,14 @@ var main =
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
-
+  <script src="assets/js/custom.js"></script>
+  <script src="config.js"></script>
+  <!--
+  <script src="assets/js/jquery.spapp.js"></script>
+  <script src="assets/js/jquery.spapp.min.js"></script>
+  <script src="assets/js/login.js"></script>
+  <script src="assets/js/registration.js"></script>
+-->
 </body>
 
 </html>

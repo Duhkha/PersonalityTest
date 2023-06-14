@@ -1,20 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-<!--INFO
-- Ilma: U comment je ono što nismo koristili; naknadno možemo staviti komentare ako uočimo da je nešto viška
-- Ilma: Treba se dodati Test i napraviti zaseban izgled, ostali dijelovi su gotovi
-- Ilma: pogledati newsletter
--->
+
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
   <title>Tech Persona</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-  <script src="Bootslander/assets/js/main.js"></script>
-<!--new-->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<!--end new-->
+  <script src="assets/js/main.js"></script>
+<!--od dželile-->
+  <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css"
+      rel="stylesheet"
+    />
+<!--do dželile-->
+
+  <!--new-->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <!--end new-->
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -35,9 +44,21 @@
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
   <!-- Template Main CSS File -->
-  <link href="assets/css/style.css" rel="stylesheet">
-  <link rel="stylesheet" href="Frontend/assets/css/style.css"> <!--import css to html-->
+  <link rel="stylesheet" href="assets/css/style.css"> <!--import css to html-->
+  <!--<link rel="stylesheet" href="assets/css/custom.css">-->
+  <link rel="stylesheet" href="assets/css/spapp.css">
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/custom.js"></script>
+  <script src="assets/js/jquery.spapp.js"></script>
+  <script src="assets/js/jquery.spapp.min.js"></script>
+
 </head>
+
+
+
+
 
 <body>
 
@@ -47,16 +68,16 @@
 
       <div class="logo">
         <h1><a href="index.html"><span>Tech Persona</span></a></h1>
-        <!-- Uncomment below if you prefer to use an image logo -->
-        <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
       </div>
 
       <nav id="navbar" class="navbar">
         <ul>
           <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
           <li><a class="nav-link scrollto" href="#test">Test</a></li>
-          
-          <li class="dropdown"><a class="nav-link scrollto active" href="#description"><span>Personality Types</span> <i class="bi bi-chevron-down"></i></a>
+          <li><a class="nav-link scrollto" href="#types">Personality Types</a></li>
+
+          <!--
+          <li class="dropdown"><a class="nav-link scrollto active" href="#types"><span>Personality Types</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
               <li><a href="#techsupport">Tech Support</a></li>
               <li><a href="#webdeveloper">Web Developer</a></li>
@@ -76,41 +97,29 @@
               <li><a href="#projectmanager">Project Manager</a></li>
               
             </ul>
-          </li>
+          </li>-->
+
           <li><a class="nav-link scrollto" href="#features">Features</a></li>
           <li><a class="nav-link scrollto" href="#faq"> FAQ </a> </li>
           <li><a class="nav-link scrollto" href="#about">About</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav>
+
       <!-- .navbar -->
 
     </div>
   </header><!-- End Header -->
 
-
 <!--spapp-->
 <main id="spapp" role="main">
-  <section id="test" data-load="test.html"></section>
-  <section id="types" data-load="types.html"></section>
-  <section id="features" data-load="features.html"></section>
-  <section id="faq" data-load="faq.html"></section>
   <section id="about" data-load="about.html"></section>
-  <section id="hero" data-load="hero.html"></section>
-</main>
-<!--spapp end-->
-
-var main =
-          '<section id="test">Highcharts</section>' +
-          '<section id="types">Highcharts</section>' +
-          '<section id="features"><h1>Datatable</h1></section>' +
-          '<section id="faq"><h1>Example 1</h1></section>' +
-          '<section id="about"><h1>Example 2</h1></section>' +
-          '<section id="hero"><h1>Form</h1></section>';
-  $("#spapp").html(main);
+ </main>
+ <!--spapp end-->
  
-  <!-- ======= Hero Section ======= -->
 
+
+  <!-- ======= Hero Section ======= -->
   <section id="hero">
     <div class="container">
       <div class="row justify-content-between">
@@ -122,17 +131,13 @@ var main =
             <div class="text-center text-lg-start">
               <a href="#test" class="btn-get-started scrollto">Take Test</a>
             </div>
-
           </div>
         </div>
-
         <div class="col-lg-4 order-1 order-lg-2 hero-img" data-aos="zoom-out-up" data-aos-delay="200">
           <img src="assets/img/hero-img.png" class="img-fluid animated" alt="">
         </div>
-
       </div>
     </div>
-
     <svg class="hero-waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28 " preserveAspectRatio="none">
       <defs>
         <path id="wave-path" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z">
@@ -147,7 +152,6 @@ var main =
         <use xlink:href="#wave-path" x="50" y="9" fill="#fff">
       </g>
     </svg>
-
   </section>
   <!-- End Hero -->
 
@@ -175,13 +179,12 @@ var main =
               </p>
             </div>
           </div>
-
           <div class="col-lg-4 col-sm-4 footer-links">
             <h4>Useful Links</h4>
             <ul>
               <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#test">Take Test</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#features">Features</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Take Test</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Features</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
             </ul>
@@ -192,49 +195,50 @@ var main =
             <form action="" method="post">
               <input type="email" name="email"><input type="submit" value="Subscribe">
             </form>
-
           </div>
-
         </div>
       </div>
     </div>
-
     <div class="container">
       <div class="copyright">
         &copy; Copyright <strong><span>Tech Persona</span></strong>. All Rights Reserved
       </div>
       <div class="credits">
-        Designed by <!--<a href="https://bootstrapmade.com/">--> Personality Test Team</a>
+        Designed by Personality Test Team</a>
       </div>
     </div>
-  </footer><!-- End Footer -->
-
+  </footer>
+<!-- End Footer -->
+<!--
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
   <div id="preloader"></div>
 
-<!--new-->
-<!--
-  <script>
-    $(document).ready(function() {
-        // Function to handle dynamic content loading
-        function loadContent(sectionId, url) {
-            $(sectionId).load(url);
-        }
-    
-        // Load initial content on page load
-        loadContent("#test", "test.html");
-    
-        // Handle navigation link clicks
-        $("nav ul li a").click(function(e) {
-            e.preventDefault();
-            var sectionId = $(this).attr("href");
-            var url = $(sectionId).data("load");
-            loadContent(sectionId, url);
-        });
-    });
-    </script>
-  -->
-<!--end of new-->
+-->
+<script>
+  var nav =
+  '<nav id="navbar" class="navbar">' +
+    '<ul>'+
+      '<li><a class="nav-link scrollto active" href="#hero">Home</a></li>'+
+      '<li><a class="nav-link scrollto" href="#test">Test</a></li>'+
+      '<li><a class="nav-link scrollto" href="#types">Personality Types</a></li>'+
+      '<li><a class="nav-link scrollto" href="#features">Features</a></li>' +
+      '<li><a class="nav-link scrollto" href="#faq">FAQ</a></li>' +
+      '<li><a class="nav-link scrollto" href="#about">About</a></li>' +
+    '</ul>' +
+    '<i class="bi bi-list mobile-nav-toggle"></i>' +
+  '</nav>';
+  
+  var main =
+  '<section id="test"></section>' +
+  '<section id="types"></section>' +
+  '<section id="features"></section>' +
+  '<section id="faq"></section>' +
+  '<section id="about"></section>' +
+  '<section id="hero"></section>';
+  
+  $("#spapp").html(main);
+  
+  </script>
 
 
   <!-- Vendor JS Files -->
@@ -247,6 +251,9 @@ var main =
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+  <script src="assets/js/custom.js"></script>
+  <script src="assets/js/jquery.spapp.js"></script>
+  <script src="assets/js/jquery.spapp.min.js"></script>
 
 </body>
 

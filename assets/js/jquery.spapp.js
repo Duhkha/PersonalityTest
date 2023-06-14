@@ -7,7 +7,7 @@
 
     config = $.extend({
       defaultView  : $("main#spapp > section:last-child").attr("id"),
-      templateDir  : './tpl/',
+      templateDir  : './tpl/', //this is folder direction where we are going to put our views, we can rename the folde but it is important to update configuration file for this one
       pageNotFound : false
     }, options );
 

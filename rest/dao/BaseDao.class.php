@@ -14,22 +14,22 @@ class BaseDao{
     * Class constructor used to establish connection to db
     */
     public function __construct($table_name){
-    try {
-    $this->table_name = $table_name;
-    $servername = Config::DB_HOST();
-    $username = Config::DB_USERNAME();
-    $password = Config::DB_PASSWORD();
-    $schema = Config::DB_SCHEMA();
-
-    $this-> conn = new PDO("mysql:host=$servername;dbname=$schema;port=3307", $username, $password);
-    //set the PDO error mode to exception
-    $this-> conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    //echo "Connected successfully";
-
-    } catch(PDOException $e) {
-        echo "Connection failed: " . $e->getMessage();
+        try {
+          $this->table_name = $table_name;
+          $servername = Config::DB_HOST();
+          $username = Config::DB_USERNAME();
+          $password = Config::DB_PASSWORD();
+          $schema = Config::DB_SCHEMA();
+          $port = Config::DB_PORT();
+          
+          $this->conn = new PDO("mysql:host=$servername;dbname=$schema;port=$port", $username, $password);
+          // set the PDO error mode to exception
+          $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+          //echo "Connected successfully";
+        } catch(PDOException $e) {
+          echo "Connection failed: " . $e->getMessage();
+        }
     }
-}
 
     /**
     * Method used to get all entities from database
@@ -45,7 +45,7 @@ class BaseDao{
         * Method used to get entity by id from database
         */
     public function get_by_id($id){
-        $stmt =  $this->conn->prepare("SELECT * FROM " . $this->table_name ." WHERE id=:id");
+        $stmt =  $this->conn->prepare("SELECT * FROM " . $this->table_name . " WHERE id=:id");
         $stmt->execute(['id' => $id]);
         return $stmt->fetchAll();
    
