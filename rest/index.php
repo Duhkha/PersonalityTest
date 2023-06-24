@@ -11,7 +11,8 @@ require "dao/HistoriesDao.class.php";
 require "dao/AnswersDao.class.php";
 */
 
-require "services/UsersService.php";
+//added in route
+//require "services/UsersService.php";
 require "services/TypesService.php";
 require "services/ResultsService.php";
 require "services/QuestionsService.php";

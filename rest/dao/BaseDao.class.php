@@ -45,7 +45,7 @@ class BaseDao{
     * Method used to get entity by id from database
     */
     public function get_by_id($id){
-        $stmt =  $this->conn->prepare("SELECT * FROM " . $this->table_name . " WHERE id=:id");
+        $stmt =  $this->conn->prepare("SELECT * FROM " . $this->table_name . " WHERE id = :id");
         $stmt->execute(['id' => $id]);
         return $stmt->fetchAll();
    
@@ -64,7 +64,7 @@ class BaseDao{
     * Method used to add entity to database
     */
     public function add($entity){
-        $query = "INSERT INTO " . $table_name . " (";
+        $query = "INSERT INTO " . $this->table_name . " (";
         foreach($entity as $column => $value){
             $query.=$column.', '; 
         }

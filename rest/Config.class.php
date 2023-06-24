@@ -10,16 +10,16 @@ class Config {
         //return Config::get_env("DB_USERNAME", "root");
     }
     public static function DB_PASSWORD(){
-        return "maliprinc";
-        //return Config::get_env("DB_PASSWORD", "maliprinc");
+        return "root";
+        //return Config::get_env("DB_PASSWORD", "root");
     }
     public static function DB_SCHEMA(){
-        return "personality-projekat-web";
-        //return Config::get_env("DB_SCHEMA", "personality-projekat-web");
+        return "personalitytest";
+        //return Config::get_env("DB_SCHEMA", "personalitytest");
     }
     public static function DB_PORT(){
-        return "3307";
-        //return Config::get_env("DB_PORT", "3307");
+        return "3306";
+        //return Config::get_env("DB_PORT", "3306");
     }
 }
 ?>
