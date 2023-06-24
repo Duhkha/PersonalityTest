@@ -5,9 +5,11 @@ require "dao/UsersDao.class.php";
 
 Flight::register('user_service',"UsersDao");
 
+/*
 Flight::route("/", function(){
     echo "Hello from / route";
 });
+*/
 
 Flight::route("GET /users", function(){
     Flight::json(Flight::user_service()->get_all());
