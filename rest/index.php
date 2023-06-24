@@ -2,7 +2,7 @@
 //.. da izadje iz rest
 require '../vendor/autoload.php';
 
-/* ne treba jer se pozivaju is service
+/* ne treba jer se pozivaju iz service
 require "dao/UsersDao.class.php";
 require "dao/TypesDao.class.php";
 require "dao/ResultsDao.class.php";
@@ -11,7 +11,7 @@ require "dao/HistoriesDao.class.php";
 require "dao/AnswersDao.class.php";
 */
 
-//added in route
+
 //require "services/UsersService.php";
 require "services/TypesService.php";
 require "services/ResultsService.php";
@@ -21,14 +21,23 @@ require "services/AnswersService.php";
 
 
 Flight::register('user_service',"UsersService");
+Flight::register('question_service',"QuestionsService");
+Flight::register('answer_service',"AnswersService");
+Flight::register('history_service',"HistoriesService");
+Flight::register('result_service',"ResultsService");
 //otherDAOS
 
 require_once 'routes/UserRoutes.php';
+require_once 'routes/QuestionRoutes.php';
+require_once 'routes/AnswerRoutes.php';
+require_once 'routes/AnswerRoutes.php';
+require_once 'routes/HistoryRoutes.php';
+require_once 'routes/ResultRoutes.php';
 //otherDAOS
 
 
 
-FLight::route("/", function() {
+Flight::route("/", function() {
     echo "hi";
 });
 

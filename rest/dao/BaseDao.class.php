@@ -47,7 +47,7 @@ class BaseDao{
     public function get_by_id($id){
         $stmt =  $this->conn->prepare("SELECT * FROM " . $this->table_name . " WHERE id = :id");
         $stmt->execute(['id' => $id]);
-        return $stmt->fetchAll();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
    
  }
 
@@ -68,7 +68,7 @@ class BaseDao{
         foreach($entity as $column => $value){
             $query.=$column.', '; 
         }
-        $query=substr($query, 0,  -2);
+        $query=substr($query, 0, -2);
 
         $query.=") VALUES (";
         foreach($entity as $column => $value){
