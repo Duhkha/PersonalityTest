@@ -42,8 +42,8 @@ class BaseDao{
     }
 
     /**
-        * Method used to get entity by id from database
-        */
+    * Method used to get entity by id from database
+    */
     public function get_by_id($id){
         $stmt =  $this->conn->prepare("SELECT * FROM " . $this->table_name ." WHERE id=:id");
         $stmt->execute(['id' => $id]);
@@ -52,8 +52,8 @@ class BaseDao{
  }
 
     /**
-        * Method used to delete entity from database
-        */
+    * Method used to delete entity from database
+    */
     public function delete($id){
         $stmt =  $this->conn->prepare("DELETE FROM " . $this->table_name . " WHERE id = :id");
         $stmt->bindParam(':id',$id); #prevent sql injection
@@ -61,8 +61,8 @@ class BaseDao{
     }
 
     /**
-        * Method used to get add entity to database
-        */
+    * Method used to add entity to database
+    */
     public function add($entity){
         $query = "INSERT INTO " . $table_name . " (";
         foreach($entity as $column => $value){
@@ -84,8 +84,8 @@ class BaseDao{
         }
 
     /**
-        * Method used to update entity in database
-        */
+    * Method used to update entity in database
+    */
     public function update($entity, $id, $id_column="id"){
         //$user['id']=$id;
         $query="UPDATE ".$this->table_name." SET ";

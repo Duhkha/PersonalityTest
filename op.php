@@ -15,22 +15,23 @@ switch($type){
         $results=$users_dao->add($firstname, $lastname);
         print_r($results);
         break;
+        
     case 'delete':
         $id=$_REQUEST['id'];
             $users_dao->delete($id);
             
         break;
 
-        case 'update':
-            $firstname=$_REQUEST['firstname'];
-            $lastname=$_REQUEST['lastname'];
-            $id=$_REQUEST['id'];
-            $users_dao->update($firstname, $lastname,$id);
-           break;
+    case 'update':
+        $firstname=$_REQUEST['firstname'];
+        $lastname=$_REQUEST['lastname'];
+        $id=$_REQUEST['id'];
+        $users_dao->update($firstname, $lastname,$id);
+        break;
 
-            case 'get':
-                print_r('get');
-                break;
+    case 'get':
+        print_r('get');
+        break;
 
     default:
     $results=$users_dao->get_all();
