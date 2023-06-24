@@ -1,19 +1,35 @@
 <?php
 //.. da izadje iz rest
 require '../vendor/autoload.php';
+
+/* ne treba jer se pozivaju is service
 require "dao/UsersDao.class.php";
-//otherDAOS
+require "dao/TypesDao.class.php";
+require "dao/ResultsDao.class.php";
+require "dao/QuestionsDao.class.php";
+require "dao/HistoriesDao.class.php";
+require "dao/AnswersDao.class.php";
+*/
 
-require "services/UserService.php";
-//other daos
+require "services/UsersService.php";
+require "services/TypesService.php";
+require "services/ResultsService.php";
+require "services/QuestionsService.php";
+require "services/HistoriesService.php";
+require "services/AnswersService.php";
 
 
-Flight::register('user_service',"UserService");
+Flight::register('user_service',"UsersService");
 //otherDAOS
 
 require_once 'routes/UserRoutes.php';
 //otherDAOS
 
+
+
+FLight::route("/", function() {
+    echo "hi";
+});
 
 
 Flight::start();

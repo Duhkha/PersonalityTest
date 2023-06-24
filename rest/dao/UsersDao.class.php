@@ -6,11 +6,11 @@ class UsersDao extends BaseDao {
         parent::__construct("users");
     }
 
+    /*
     public function get_all(){
         return parent::get_all();
     }
-
-
+    */
 
 }
 
