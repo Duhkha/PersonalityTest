@@ -29,14 +29,14 @@ Flight::route("POST /results", function(){
 
 //update
 Flight::route("PUT /results/@id", function($id){
-    $result = FLight::request()->data->getData();
+    $result = Flight::request()->data->getData();
     #$response=$users_dao->update($user,$id);
     Flight::json(['message'=>"result edit successfully",
-                  'data'=>Flight::result_service->update($result,$id)
+                  'data'=>Flight::result_service()->update($result,$id)
                 ]);
     
 });
 
-Flight::start();
+
 
 ?>

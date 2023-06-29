@@ -1,25 +1,21 @@
 <?php
 
-class Config {
+class Config{
     public static function DB_HOST(){
-        return "localhost";
-        //return Config::get_env("DB_HOST", "localhost");
+        return 'localhost';
     }
+
     public static function DB_USERNAME(){
-        return "root";
-        //return Config::get_env("DB_USERNAME", "root");
+        return 'root';
     }
+
     public static function DB_PASSWORD(){
-        return "root";
-        //return Config::get_env("DB_PASSWORD", "root");
+        return '69w33d420';
     }
+//DBNAME
     public static function DB_SCHEMA(){
-        return "personalitytest";
-        //return Config::get_env("DB_SCHEMA", "personalitytest");
-    }
-    public static function DB_PORT(){
-        return "3306";
-        //return Config::get_env("DB_PORT", "3306");
+        return 'personalitydb';
     }
 }
+
 ?>

@@ -1,47 +1,37 @@
 <?php
-//.. da izadje iz rest
-require '../vendor/autoload.php';
 
-/* ne treba jer se pozivaju iz service
-require "dao/UsersDao.class.php";
-require "dao/TypesDao.class.php";
-require "dao/ResultsDao.class.php";
-require "dao/QuestionsDao.class.php";
-require "dao/HistoriesDao.class.php";
-require "dao/AnswersDao.class.php";
+//require 'flight/Flight.php';
+require "../vendor/autoload.php";
+/*
+require "dao/BaseDao.class.php";
+require "dao/UserDao.class.php";
 */
 
+require "services/UserService.php";
+require "services/QuestionService.php";
+require "services/AnswerService.php";
+require "services/HistoryService.php";
+require "services/TypeService.php";
+require "services/ResultService.php";
 
-//require "services/UsersService.php";
-require "services/TypesService.php";
-require "services/ResultsService.php";
-require "services/QuestionsService.php";
-require "services/HistoriesService.php";
-require "services/AnswersService.php";
+Flight::route('/', function () {
+    echo 'hello world!';
+});
 
 
-Flight::register('user_service',"UsersService");
-Flight::register('question_service',"QuestionsService");
-Flight::register('answer_service',"AnswersService");
-Flight::register('history_service',"HistoriesService");
-Flight::register('result_service',"ResultsService");
-//otherDAOS
+Flight::register('user_service',"UserService");
+Flight::register('question_service',"QuestionService");
+Flight::register('answer_service',"AnswerService");
+Flight::register('history_service',"HistoryService");
+Flight::register('type_service',"TypeService");
+Flight::register('result_service',"ResultService");
 
 require_once 'routes/UserRoutes.php';
 require_once 'routes/QuestionRoutes.php';
 require_once 'routes/AnswerRoutes.php';
-require_once 'routes/AnswerRoutes.php';
 require_once 'routes/HistoryRoutes.php';
+require_once 'routes/TypeRoutes.php';
 require_once 'routes/ResultRoutes.php';
-//otherDAOS
-
-
-
-Flight::route("/", function() {
-    echo "hi";
-});
-
 
 Flight::start();
-
 ?>
