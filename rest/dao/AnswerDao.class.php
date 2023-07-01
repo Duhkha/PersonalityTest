@@ -1,9 +1,9 @@
 <?php
 require_once "BaseDao.class.php";
-class AnswersDao extends BaseDao {
+class AnswerDao extends BaseDao {
 
     public function __construct(){
-        parent::__construct("answers");
+        parent::__construct("answers","answerid");
     }
 
 }
