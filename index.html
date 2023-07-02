@@ -792,6 +792,10 @@
   <div id="FAQDiv" style="display:none">
     <section id="faq" class="faq section-bg">
       <div class="container">
+        
+        <div class="section-title" data-aos="fade-up"> <!--make more space at the top-->
+          <p></p>
+        </div>
 
         <div class="section-title" data-aos="fade-up">
           <h2>F.A.Q</h2>
@@ -848,6 +852,30 @@
                 </p>
               </div>
             </li>
+
+            <li data-aos="fade-up" data-aos-delay="400">
+              <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-4"
+                class="collapsed">How does the personality test work? <i class="bx bx-chevron-down icon-show"></i><i
+                  class="bx bx-chevron-up icon-close"></i></a>
+              <div id="faq-list-4" class="collapse" data-bs-parent=".faq-list">
+                <p>
+                  Our personality test utilizes carefully crafted questions to assess your unique traits and
+                  characteristics, providing valuable insights into your compatibility with various IT roles.
+                </p>
+              </div>
+            </li>
+
+            <li data-aos="fade-up" data-aos-delay="500">
+              <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-4"
+                class="collapsed">How does the personality test work? <i class="bx bx-chevron-down icon-show"></i><i
+                  class="bx bx-chevron-up icon-close"></i></a>
+              <div id="faq-list-4" class="collapse" data-bs-parent=".faq-list">
+                <p>
+                  Our personality test utilizes carefully crafted questions to assess your unique traits and
+                  characteristics, providing valuable insights into your compatibility with various IT roles.
+                </p>
+              </div>
+            </li>
           </ul>
         </div>
 
@@ -879,6 +907,7 @@
               Experience our user-friendly platform, receive
               comprehensive reports with personalized recommendations, and access our blog for valuable insights and
               resources.
+
             </p>
 
             <div class="icon-box" data-aos="zoom-in" data-aos-delay="100">
@@ -894,6 +923,16 @@
             <div class="icon-box" data-aos="zoom-in" data-aos-delay="200">
               <div class="icon"><i class="bx bx-atom"></i></div>
               <h4 class="title">Discover yourself <!--<a href=""></a>--></h4>
+              <p class="description"> Join us on this transformative journey of self-discovery, unlocking your true
+                potential and
+                shaping a successful IT career that resonates with who you are. Welcome to a world of possibilities in
+                the IT realm!
+              </p>
+              <p class="description"> Join us on this transformative journey of self-discovery, unlocking your true
+                potential and
+                shaping a successful IT career that resonates with who you are. Welcome to a world of possibilities in
+                the IT realm!
+              </p>
               <p class="description"> Join us on this transformative journey of self-discovery, unlocking your true
                 potential and
                 shaping a successful IT career that resonates with who you are. Welcome to a world of possibilities in
@@ -935,27 +974,23 @@
             <h4>Useful Links</h4>
             <ul>
               <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Take Test</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#TestDiv">Take Test</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="#">Features</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
             </ul>
           </div>
 
           <div class="col-lg-4 col-sm-12 footer-social">
             <h4>Follow Us</h4>
             <div class="social-links">
-              <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-              <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-              <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-              <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-              <a href="#" class="youtube"><i class="bx bxl-youtube"></i></a>
+              <a href="https://www.facebook.com/ibueduba/" class="facebook" target="_blank"><i class="bx bxl-facebook"></i></a>
+              <a href="https://www.instagram.com/ibu.it.department/" class="instagram"><i class="bx bxl-instagram"></i></a>
+              <a href="https://www.linkedin.com/school/international-burch-university/" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+              <a href="https://www.youtube.com/@InternationalBURCHUniversity" class="youtube"><i class="bx bxl-youtube"></i></a>
             </div>
           </div>
         </div>
       </div>
     </div>
-
     <div class="container">
       <div class="copyright">
         &copy; Copyright <strong><span>Tech Persona</span></strong>. All Rights Reserved
@@ -966,8 +1001,7 @@
     </div>
   </footer>
 
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
-      class="bi bi-arrow-up-short"></i></a>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
   <div id="preloader"></div>
 
   <!--JS SCRIPTS-->
@@ -990,9 +1024,6 @@
 
   <script>
     var nav =
-      '<li class="nav-item">' +
-      '<a class="nav-link scrollto" href="#hero" onclick="ChangeTab.goToHome();" >Home</a>' +
-      "</li>" +
       '<li class="nav-item">' +
       '<a class="nav-link scrollto" href="#test" onclick="ChangeTab.goToTest();">Test</a>' +
       "</li>" +

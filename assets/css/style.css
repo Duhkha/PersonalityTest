@@ -36,7 +36,7 @@ h6 {
   bottom: 0;
   z-index: 9999;
   overflow: hidden;
-  background: #fff;
+  background: #ffffff;
 }
 
 #preloader:before {
@@ -407,6 +407,7 @@ h6 {
   background: url("../img/hero-bg.jpg");
   position: relative;
   padding: 120px 0 0 0;
+  background-color: #f5f5ff;
 }
 
 #hero:before {
@@ -574,11 +575,12 @@ section {
 }
 
 .section-bg {
-  background-color: #f5f5ff;
+  background-color: #ffffff;
 }
 
 .section-title {
   padding-bottom: 40px;
+  padding-top: 60px
 }
 
 .section-title h2 {
@@ -948,7 +950,7 @@ section {
 # Testimonials
 --------------------------------------------------------------*/
 .testimonials {
-  padding: 80px 0;
+  padding: 150px 0;
   background: url("../img/cta-bg.jpg") no-repeat;
   background-position: center center;
   background-size: cover;
@@ -1141,13 +1143,13 @@ section {
 
 #footer {
   background: #010351;
-  padding: 0 0 30px 0;
+  padding: 0;
   color: #fff;
   font-size: 14px;
 }
 
 #footer .footer-top {
-  padding: 60px 0 30px 0;
+  padding: 10px 0;
 }
 
 #footer .footer-top .footer-info {
@@ -1156,12 +1158,12 @@ section {
   color: #fff;
   border-top: 4px solid #1acc8d;
   text-align: center;
-  padding: 30px 20px;
+  padding: 10px 20px;
 }
 
 #footer .footer-top .footer-info h3 {
   font-size: 24px;
-  margin: 0 0 20px 0;
+  margin: 0 0 10px 0;
   padding: 2px 0 2px 0;
   line-height: 1;
   font-weight: 700;
@@ -1179,12 +1181,12 @@ section {
   display: inline-block;
   color: #fff;
   line-height: 1;
-  padding: 8px 0;
+  padding: 4px;
   margin-right: 4px;
   border-radius: 50%;
   text-align: center;
-  width: 36px;
-  height: 36px;
+  width: 24px;
+  height: 24px;
   transition: 0.3s;
 }
 
@@ -1199,11 +1201,11 @@ section {
   font-weight: 600;
   color: #fff;
   position: relative;
-  padding-bottom: 12px;
+  padding-bottom: 6px;
 }
 
 #footer .footer-top .footer-links {
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 #footer .footer-top .footer-links ul {
@@ -1220,7 +1222,7 @@ section {
 }
 
 #footer .footer-top .footer-links ul li {
-  padding: 10px 0;
+  padding: 5px 0;
   display: flex;
   align-items: center;
 }
@@ -1240,47 +1242,15 @@ section {
   color: #4be8b0;
 }
 
-#footer .footer-top .footer-newsletter form {
-  margin-top: 30px;
-  background: #fff;
-  padding: 6px 10px 6px 15px;
-  position: relative;
-  border-radius: 50px;
-}
-
-#footer .footer-top .footer-newsletter form input[type=email] {
-  border: 0;
-  padding: 4px;
-  width: calc(100% - 110px);
-}
-
-#footer .footer-top .footer-newsletter form input[type=submit] {
-  position: absolute;
-  top: 0;
-  right: -2px;
-  bottom: 0;
-  border: 0;
-  background: none;
-  font-size: 16px;
-  padding: 0 20px;
-  background: #1acc8d;
-  color: #fff;
-  transition: 0.3s;
-  border-radius: 50px;
-}
-
-#footer .footer-top .footer-newsletter form input[type=submit]:hover {
-  background: #149f6e;
-}
-
 #footer .copyright {
   border-top: 1px solid #010479;
   text-align: center;
-  padding-top: 30px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 #footer .credits {
-  padding-top: 10px;
+  padding-top: 5px;
   text-align: center;
   font-size: 13px;
   color: #fff;
@@ -1288,359 +1258,6 @@ section {
 
 @media (max-width: 575px) {
   #footer .footer-top .footer-info {
-    margin: -20px 0 30px 0;
+    margin: -10px 0 20px 0;
   }
 }
-
-/*--------------------------------------------------------------
-# Gallery
---------------------------------------------------------------*/
-/*
-.gallery .gallery-item {
-  overflow: hidden;
-  border-right: 3px solid #fff;
-  border-bottom: 3px solid #fff;
-}
-
-.gallery .gallery-item img {
-  transition: all ease-in-out 0.4s;
-}
-
-.gallery .gallery-item:hover img {
-  transform: scale(1.1);
-}
-*/
-
-/*--------------------------------------------------------------
-# Team
---------------------------------------------------------------*/
-/*
-.team {
-  background: #fff;
-}
-
-.team .member {
-  text-align: center;
-  margin-bottom: 80px;
-  position: relative;
-}
-
-.team .member .pic {
-  border-radius: 4px;
-  overflow: hidden;
-}
-
-.team .member img {
-  transition: all ease-in-out 0.4s;
-}
-
-.team .member:hover img {
-  transform: scale(1.1);
-}
-
-.team .member .member-info {
-  position: absolute;
-  bottom: -80px;
-  left: 0px;
-  right: 0px;
-  background: rgba(255, 255, 255, 0.9);
-  padding: 15px 0;
-  border-radius: 0 0 4px 4px;
-  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
-}
-
-.team .member h4 {
-  font-weight: 700;
-  margin-bottom: 10px;
-  font-size: 16px;
-  color: #01036f;
-  position: relative;
-  padding-bottom: 10px;
-}
-
-.team .member h4::after {
-  content: "";
-  position: absolute;
-  display: block;
-  width: 50px;
-  height: 1px;
-  background: #0d12fc;
-  bottom: 0;
-  left: calc(50% - 25px);
-}
-
-.team .member span {
-  font-style: italic;
-  display: block;
-  font-size: 13px;
-  color: #01036f;
-}
-
-.team .member .social {
-  margin-top: 10px;
-}
-
-.team .member .social a {
-  transition: color 0.3s;
-  color: #01036f;
-}
-
-.team .member .social a:hover {
-  color: #1acc8d;
-}
-
-.team .member .social i {
-  font-size: 16px;
-  margin: 0 2px;
-}
-*/
-/*--------------------------------------------------------------
-# Pricing
---------------------------------------------------------------*/
-/*
-.pricing .box {
-  padding: 20px;
-  background: #fff;
-  text-align: center;
-  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.12);
-  border-radius: 5px;
-  position: relative;
-  overflow: hidden;
-}
-
-.pricing h3 {
-  font-weight: 400;
-  margin: -20px -20px 20px -20px;
-  padding: 20px 15px;
-  font-size: 16px;
-  font-weight: 600;
-  color: #777777;
-  background: #f8f8f8;
-}
-
-.pricing h4 {
-  font-size: 36px;
-  color: #1acc8d;
-  font-weight: 600;
-  font-family: "Poppins", sans-serif;
-  margin-bottom: 20px;
-}
-
-.pricing h4 sup {
-  font-size: 20px;
-  top: -15px;
-  left: -3px;
-}
-
-.pricing h4 span {
-  color: #bababa;
-  font-size: 16px;
-  font-weight: 300;
-}
-
-.pricing ul {
-  padding: 0;
-  list-style: none;
-  color: #444444;
-  text-align: center;
-  line-height: 20px;
-  font-size: 14px;
-}
-
-.pricing ul li {
-  padding-bottom: 16px;
-}
-
-.pricing ul i {
-  color: #1acc8d;
-  font-size: 18px;
-  padding-right: 4px;
-}
-
-.pricing ul .na {
-  color: #ccc;
-  text-decoration: line-through;
-}
-
-.pricing .btn-wrap {
-  margin: 20px -20px -20px -20px;
-  padding: 20px 15px;
-  background: #f8f8f8;
-  text-align: center;
-}
-
-.pricing .btn-buy {
-  background: #1acc8d;
-  display: inline-block;
-  padding: 8px 35px 10px 35px;
-  border-radius: 50px;
-  color: #fff;
-  transition: none;
-  font-size: 14px;
-  font-weight: 400;
-  font-family: "Montserrat", sans-serif;
-  font-weight: 600;
-  transition: 0.3s;
-}
-
-.pricing .btn-buy:hover {
-  background: #149f6e;
-}
-
-.pricing .featured h3 {
-  color: #fff;
-  background: #1acc8d;
-}
-
-.pricing .advanced {
-  width: 200px;
-  position: absolute;
-  top: 18px;
-  right: -68px;
-  transform: rotate(45deg);
-  z-index: 1;
-  font-size: 14px;
-  padding: 1px 0 3px 0;
-  background: #1acc8d;
-  color: #fff;
-}
-*/
-
-/*--------------------------------------------------------------
-# Contact
---------------------------------------------------------------*/
-/*
-.contact .info {
-  width: 100%;
-  background: #fff;
-}
-
-.contact .info i {
-  font-size: 20px;
-  color: #3f43fd;
-  float: left;
-  width: 44px;
-  height: 44px;
-  background: #f0f0ff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50px;
-  transition: all 0.3s ease-in-out;
-}
-
-.contact .info h4 {
-  padding: 0 0 0 60px;
-  font-size: 22px;
-  font-weight: 600;
-  margin-bottom: 5px;
-  color: #010483;
-}
-
-.contact .info p {
-  padding: 0 0 0 60px;
-  margin-bottom: 0;
-  font-size: 14px;
-  color: #0205a1;
-}
-
-.contact .info .email,
-.contact .info .phone {
-  margin-top: 40px;
-}
-
-.contact .info .email:hover i,
-.contact .info .address:hover i,
-.contact .info .phone:hover i {
-  background: #1acc8d;
-  color: #fff;
-}
-
-.contact .php-email-form {
-  width: 100%;
-  background: #fff;
-}
-
-.contact .php-email-form .form-group {
-  padding-bottom: 8px;
-}
-
-.contact .php-email-form .error-message {
-  display: none;
-  color: #fff;
-  background: #ed3c0d;
-  text-align: left;
-  padding: 15px;
-  font-weight: 600;
-}
-
-.contact .php-email-form .error-message br+br {
-  margin-top: 25px;
-}
-
-.contact .php-email-form .sent-message {
-  display: none;
-  color: #fff;
-  background: #18d26e;
-  text-align: center;
-  padding: 15px;
-  font-weight: 600;
-}
-
-.contact .php-email-form .loading {
-  display: none;
-  background: #fff;
-  text-align: center;
-  padding: 15px;
-}
-
-.contact .php-email-form .loading:before {
-  content: "";
-  display: inline-block;
-  border-radius: 50%;
-  width: 24px;
-  height: 24px;
-  margin: 0 10px -6px 0;
-  border: 3px solid #18d26e;
-  border-top-color: #eee;
-  animation: animate-loading 1s linear infinite;
-}
-
-.contact .php-email-form input,
-.contact .php-email-form textarea {
-  border-radius: 0;
-  box-shadow: none;
-  font-size: 14px;
-}
-
-.contact .php-email-form input {
-  height: 44px;
-}
-
-.contact .php-email-form textarea {
-  padding: 10px 12px;
-}
-
-.contact .php-email-form button[type=submit] {
-  background: #1acc8d;
-  border: 0;
-  padding: 10px 30px;
-  color: #fff;
-  transition: 0.4s;
-  border-radius: 50px;
-}
-
-.contact .php-email-form button[type=submit]:hover {
-  background: #34e5a6;
-}
-
-@keyframes animate-loading {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
-}
-*/
