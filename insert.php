@@ -25,11 +25,11 @@
     echo "Connected successfully";
 
 
-    print_r($_REQUEST);
-$firstname=$_REQUEST['firstname'];
-$lastname=$_REQUEST['lastname'];
+    print_r($_REQUEST); //it will print out what we have inserted PersonalityTest/insert.php?first_name=user1&last_name=user2
+    $firstname=$_REQUEST['firstname'];
+    $lastname=$_REQUEST['lastname'];
 	// Prepare SQL statement
-	$stmt = $conn->prepare("INSERT INTO users (firstname, lastname) VALUES ('$firstname', '$lastname')");
+	  $stmt = $conn->prepare("INSERT INTO users (firstname, lastname) VALUES ('$firstname', '$lastname')");
 
 
 

@@ -70,8 +70,30 @@ $port = Config::DB_PORT();
   }
   
 */
+/*
+//ilma connection
+$servername = "localhost";
+ $username = "root";
+ $password = "maliprinc";
+ $dbname = "personalitydb";
+ $port="3307";
 
+ try {
+    //Create database connection using PDO
+    $conn = new PDO("mysql:host=$servername;dbname=$dbname;port=$port", $username, $password);
+    //Set the PDO error mode to exception
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    echo "Connected successfully";
 
+	//part of the query 
+	  $stmt = $conn->prepare("SELECT * FROM users"); //we establish connection to the db; prepare is the method where we are writitng the query
+    $stmt->execute();
+    $result = $stmt->fetchAll(PDO::FETCH_ASSOC); //PDO::FETCH_ASSOC will give us an associative array which will give us a key-value pair; key is the name of the column, and value is the vlaue for the coresponding column
+    print_r($result);
 
+  } catch(PDOException $e) {
+    echo "Connection failed: " . $e->getMessage();
+  }
+  */
 
 ?>
