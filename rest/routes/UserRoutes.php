@@ -78,5 +78,13 @@ Flight::route('POST /users/login', function(){
     }
 });
 
+Flight::route('GET /users/@id/history', function($id){
+    Flight::json(Flight::history_service()->get_by_user_id($id));
+});
+
+
+
+
+
 
 ?>

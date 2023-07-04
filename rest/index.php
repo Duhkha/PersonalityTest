@@ -32,6 +32,7 @@ require_once 'routes/AnswerRoutes.php';
 require_once 'routes/HistoryRoutes.php';
 require_once 'routes/TypeRoutes.php';
 require_once 'routes/ResultRoutes.php';
+require_once 'routes/TestRoute.php'; //without s :/
 
 Flight::start();
 ?>

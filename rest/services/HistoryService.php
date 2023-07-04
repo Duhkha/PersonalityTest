@@ -8,6 +8,11 @@ class HistoryService extends BaseService{
         parent::__construct(new HistoryDao);
     }
 
+    public function get_by_user_id($user_id) {
+        return $this->dao->get_by_user_id($user_id);
+    }
+    
+
 }
 
 ?>

@@ -8,6 +8,10 @@ class AnswerService extends BaseService{
         parent::__construct(new AnswerDao);
     }
 
+    public function get_by_question_id($questionid) {
+        return $this->dao->get_by_question_id($questionid);
+    }
+
 }
 
 ?>

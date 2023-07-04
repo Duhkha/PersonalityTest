@@ -8,6 +8,11 @@ class ResultService extends BaseService{
         parent::__construct(new ResultDao);
     }
 
+    public function add_results($userid, $categoryApoints, $categoryBpoints, $categoryCpoints, $categoryDpoints){
+        return $this->dao->add_results($userid, $categoryApoints, $categoryBpoints, $categoryCpoints, $categoryDpoints);
+    }
+    
+
 }
 
 ?>
