@@ -1,0 +1,91 @@
+<style>
+    table,tr,td{
+      border: 1px solid black
+    }
+  </style>
+
+  <table id="users">
+    <!--<div class="spinner-border" role="status">-->
+      <span class="sr-only">Loading...</span>
+    </div>
+
+  </table>
+
+  <!--MODAL WILL NOT BE DISPLAYED-->
+
+      <!-- Modal -->
+      <div class="modal fade" id="deleteUserModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <input id="user_id" name="user_id" hidden/>
+            <div class="modal-body" id="delete-user-body">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-danger" onClick="deleteUser()">Delete</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <table id="students-table"></table>
+<script type="text/javascript">
+/*
+      AJAX REQUEST TO GET ALL USERS
+      */
+     
+     getUsers();
+     function getUsers(){
+        $.get('rest/users', function(data){
+        var html = '';
+        for(var i=0; i<data.length; i++){
+          html+='<tr>'+
+              '<td>'+data[i].name+'</td>'+
+              '<td>'+data[i].surname+'</td>'+
+              '<td><button class="btn btn-info" onClick="editUser(' + data[i].id + ')">Edit User</button></td>'+
+              '<td><button class="btn btn-danger" onClick="openConfirmationDialog(' + data[i].id + ')">Delete User</button></td>'+
+              '</tr>';
+        }
+        $("#users-table").html(html);
+        console.log(data);
+      });
+      }
+
+      function openConfirmationDialog(id){
+        $("#deleteUserModal").modal('show');   
+        $("#delete-user-body").html("Do you want to delete user with ID = " + id);
+        $("#user_id").val(id);
+      }
+
+      function deleteUser() {
+        $.ajax({
+          url: 'rest/users/' + $("#user_id").val(),
+          type: 'DELETE',
+          success: function(response) {
+            console.log(response);
+            $("#deleteUserModal").modal('hide'); 
+            toastr.success(response.message);
+            getUsers();
+
+            //alert('deleted');
+          },
+          error: function(XMLHttpRequest, textStatus, errorThrown) {
+            console.log("Error: " + errorThrown);
+          }
+        });
+      }
+
+      function editUser(id){
+        // Your implementation for editing a user goes here
+      }
+
+
+
+
+    </script>

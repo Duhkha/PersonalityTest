@@ -1,6 +1,6 @@
 <?php
    
-require_once __DIR__."/../Config.class.php";
+require_once __DIR__."/../Configuration.class.php";
 
 class BaseDao{
     protected $conn;
@@ -19,8 +19,9 @@ class BaseDao{
         $username = Config::DB_USERNAME();
         $password = Config::DB_PASSWORD();
         $dbname = Config::DB_SCHEMA();
+        $port = Config::DB_PORT();
     
-        $this-> conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+        $this-> conn = new PDO("mysql:host=$servername;dbname=$dbname;port=$port", $username, $password);
         $this-> conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
       //  echo "Connected successfully";
         } catch(PDOException $e) {

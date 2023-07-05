@@ -9,6 +9,11 @@ class UserService extends BaseService{
         parent::__construct(new UserDao);
     }
 
+    public function add($entity){
+        $entity['password'] = md5($entity['password']);
+        return parent::add($entity);
+    }
+
     public function register($user) {
         if (!$this->validateEmail($user['email'])) {
             throw new Exception("Invalid email format");

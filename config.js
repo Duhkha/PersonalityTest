@@ -1,1 +1,1 @@
-const REST_URL= "rest/";
+const REST_URL= 'rest/';

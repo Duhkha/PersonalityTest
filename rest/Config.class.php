@@ -10,11 +10,15 @@ class Config{
     }
 
     public static function DB_PASSWORD(){
-        return '69w33d420';
+        return 'maliprinc';
     }
 //DBNAME
     public static function DB_SCHEMA(){
         return 'personalitydb';
+    }
+
+    public static function DB_PORT(){
+        return '3307';
     }
 }
 

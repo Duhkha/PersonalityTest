@@ -25,6 +25,30 @@ $(function() {
                 minlength: "Your password must be at least 8 characters long"
             }
         },
+        /*
+        highlight: function(element, errorClass){
+            $(element).fadeOut(function(){
+                $(element).fadeIn();
+            })
+        },*/
+        /*
+        submitHandler: function(form, validator){
+            $.post("rest/users", $("addUserForm").specialize())
+        }
+        invalidHandler: function(event, validator){
+            var errors = validator.numberOfInvalids();
+            toastr.error("Error");
+            if(errors){
+                var message = 
+                    errors == 1
+                     ?"You missed 1 field."
+                     : "You missed " + errors + " fields.";
+                $("div.error span").html(message);
+                $("div.error").show();
+            }else{
+                $("div.error").hide();
+            }
+        },*/
         // Submit the form if it is valid
         submitHandler: function(form) {
             form.submit();
