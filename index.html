@@ -1035,9 +1035,9 @@
       '<section id="about"></section>' +
       '<section id="hero"></section>';
     $("#spapp").html(main);
-
-
 */
+
+
 var token = localStorage.getItem("user_token");
 if (token) {
   var user = Utils.parseJwt(token);
@@ -1094,6 +1094,7 @@ if (token) {
 } else {
   window.location.replace("login.html");
 }
+
 </script>
 </body>
 

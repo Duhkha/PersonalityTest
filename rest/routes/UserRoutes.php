@@ -58,7 +58,7 @@ Flight::route('POST /login', function(){
     if(count($user) > 0){
         $user = $user[0];
     }
-    if (isset($user['id'])){
+    if (isset($user['userid'])){
       if($user['password'] == md5($login['password'])){
         unset($user['password']);
         $user['is_admin'] = true;
