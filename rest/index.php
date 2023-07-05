@@ -6,7 +6,9 @@ require "../vendor/autoload.php";
 require "dao/BaseDao.class.php";
 require "dao/UserDao.class.php";
 */
-
+/*
+require "dao/UserDao.php"; //new
+*/
 require "services/UserService.php";
 require "services/QuestionService.php";
 require "services/AnswerService.php";
@@ -25,6 +27,7 @@ Flight::register('answer_service',"AnswerService");
 Flight::register('history_service',"HistoryService");
 Flight::register('type_service',"TypeService");
 Flight::register('result_service',"ResultService");
+//Flight::register('userDao', "UserDao"); //new
 
 require_once 'routes/UserRoutes.php';
 require_once 'routes/QuestionRoutes.php';

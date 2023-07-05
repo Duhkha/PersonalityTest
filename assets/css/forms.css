@@ -55,6 +55,110 @@ input {
 button {
     width: 100%;
     padding: 12px;
+    background-color: #0d6efd;
+    border: none;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0d6efd;
+}
+
+.error {
+    color: rgba(1, 136, 32, 0.9);
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.login-link,
+.register-link {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.login-link a,
+.register-link a {
+    color: #0d6efd;
+    text-decoration: none;
+}
+
+.login-link a:hover,
+.register-link a:hover {
+    text-decoration: underline;
+}
+
+.login-link a {
+    color: #007bff !important;
+}
+
+button.btn-primary {
+    background-color: #007bff;
+}
+
+
+  
+/*
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Montserrat", sans-serif;
+    font-size: 14px;
+    color: #333333;
+    background-color: #f5f5f5;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.form-container {
+    max-width: 400px;
+    width: 100%;
+    padding: 40px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.title {
+    text-align: center;
+    color: #333333;
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: #555555;
+    font-weight: 500;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    background-color: #f5f5f5;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
     background-color: #1acc8d;
     border: none;
     color: #ffffff;
@@ -89,7 +193,7 @@ button:hover {
 .login-link a:hover,
 .register-link a:hover {
     text-decoration: underline;
-}
+}*/
 
 /* *{
     margin: 0;

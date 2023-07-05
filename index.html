@@ -38,6 +38,10 @@
   <!--<link rel="stylesheet" href="assets/css/forms.css">-->
   <link rel="stylesheet" href="assets/css/spapp.css">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="assets/js/student-service.js"></script>
+  <script src="assets/js/utils.js"></script>
+  <script src="assets/js/rest-client.js"></script>
+  <script src="config.js"></script>
 
 
 
@@ -1000,8 +1004,11 @@
    <!----Test js-->
    <script src="assets/js/test.js"></script>
 
+   <script src="assets/js/user-service.js"></script>
+
 
   <script>
+    /*
     var nav =
       '<li class="nav-item">' +
       '<a class="nav-link scrollto" href="#test" onclick="ChangeTab.goToTest();">Test</a>' +
@@ -1029,7 +1036,65 @@
       '<section id="hero"></section>';
     $("#spapp").html(main);
 
-  </script>
+
+*/
+var token = localStorage.getItem("user_token");
+if (token) {
+  var user = Utils.parseJwt(token);
+  if (user.is_admin) {
+    var nav =
+      '<li class="nav-item">' +
+      '<a class="nav-link scrollto" href="#test" onclick="ChangeTab.goToTest();">Test</a>' +
+      '</li>' +
+      '<li class="nav-item">' +
+      '<a class="nav-link scrollto" href="#types" onclick="ChangeTab.goToTypes();">Types</a>' +
+      '</li>' +
+      '<li class="nav-item">' +
+      '<a class="nav-link scrollto" href="#features" onclick="ChangeTab.goToFeatures();" >Features</a>' +
+      '</li>' +
+      '<li class="nav-item">' +
+      '<a class="nav-link scrollto" href="#faq" onclick="ChangeTab.goToFAQ();" >FAQ</a>' +
+      '</li>' +
+      '<li class="nav-item">' +
+      '<a class="nav-link scrollto" href="#about" onclick="ChangeTab.goToAbout();" >About</a>' +
+      '</li>'+
+      '<li class="nav-item">' +
+      '<a class="nav-link" href="#" onclick="UserService.logout()">Logout</a>'+
+      '</li>';
+
+    $("#tabs").html(nav);
+
+    var main =
+      '<section id="test"></section>' +
+      '<section id="types"></section>' +
+      '<section id="features"></section>' +
+      '<section id="faq"></section>' +
+      '<section id="about"></section>' +
+      '<section id="hero"></section>';
+    $("#spapp").html(main);
+  } else {
+    var nav =
+      '<li class="nav-item">' +
+      '<a class="nav-link scrollto" href="#types" onclick="ChangeTab.goToTypes();">Types</a>' +
+      '</li>' +
+      '<li class="nav-item">' +
+      '<a class="nav-link scrollto" href="#features" onclick="ChangeTab.goToFeatures();" >Features</a>' +
+      '</li>'+
+      '<li class="nav-item">' +
+      '<a class="nav-link" href="#" onclick="UserService.logout()">Logout</a>'+
+      '</li>';
+    $("#tabs").html(nav);
+
+    var main =
+      '<section id="types"></section>' +
+      '<section id="features"></section>' +
+      '<section id="hero"></section>';
+    $("#spapp").html(main);
+  }
+} else {
+  window.location.replace("login.html");
+}
+</script>
 </body>
 
 </html>

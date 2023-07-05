@@ -8,6 +8,10 @@ class UserService extends BaseService{
     public function __construct(){
         parent::__construct(new UserDao);
     }
+    
+    public function get_user_by_email($email) {
+        return $this->dao->get_user_by_email($email);
+    }
 
     public function add($entity){
         $entity['password'] = md5($entity['password']);
@@ -27,7 +31,7 @@ class UserService extends BaseService{
         // Store password as plain text
         return $this->dao->add($user);
     }
-
+/*
     public function login($email, $password) {
         $user = $this->dao->get_by_email($email);
 
@@ -41,7 +45,7 @@ class UserService extends BaseService{
 
         return $user;
     }
-
+*/
     private function validateEmail($email) {
         $pattern = '/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/';
         return preg_match($pattern, $email);
