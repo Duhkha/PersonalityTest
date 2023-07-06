@@ -41,7 +41,7 @@ class BaseDao{
     public function get_by_id($id){
         $stmt =  $this->conn->prepare("SELECT * FROM " . $this->table_name . " WHERE " . $this->id_column . " = :id");
         $stmt->execute(['id' => $id]);
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $stmt->fetch();
     }
 
     public function delete($id){
@@ -49,8 +49,8 @@ class BaseDao{
         $stmt->bindParam(':id',$id); #prevent sql injection
         $stmt->execute();
     }
-
-    public function update($entity, $id){
+    //id_column dodala
+    public function update($entity, $id, $id_column="id"){
         $query="UPDATE ".$this->table_name." SET ";
         foreach($entity as $column=>$value){
             $query.=$column . "=:".$column . ", ";
