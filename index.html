@@ -1111,7 +1111,7 @@
 var token = localStorage.getItem("user_token");
 if (token) {
   var user = Utils.parseJwt(token);
-  if (!user.is_admin) {
+  if (user.is_admin) {
     var nav =
       '<li class="nav-item">' +
       '<a class="nav-link scrollto" href="#test" onclick="ChangeTab.goToTest();">Test</a>' +
