@@ -18,15 +18,6 @@ class UserService extends BaseService{
         return parent::add($entity);
     }
 
-    //Ilma - dodala sam update jer prema videu očito da treba
-    public function update($user, $id){
-        $user['password'] = md5($user['password']);
-        if(isset($user['id_column']) && !is_null($user['id_column']) ){
-            return parent::update($user, $id, $user['id_column']);
-        }
-        return parent::update($user, $id);
-    }
-
     public function register($user) {
         if (!$this->validateEmail($user['email'])) {
             throw new Exception("Invalid email format");
