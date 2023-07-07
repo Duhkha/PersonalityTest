@@ -42,6 +42,7 @@
   <script src="assets/js/utils.js"></script>
   <script src="assets/js/rest-client.js"></script>
   <script src="config.js"></script>
+  <script src="node_modules/jwt-decode/build/jwt-decode.js"></script>
 
 
 
@@ -1110,8 +1111,9 @@
 
 var token = localStorage.getItem("user_token");
 if (token) {
-  var user = Utils.parseJwt(token);
-  if (user.is_admin) {
+  //var user = Utils.parseJwt(token);
+  var decodedToken = jwt_decode(token);
+  if (decodedToken.Authorization == "Authorized") {
     var nav =
       '<li class="nav-item">' +
       '<a class="nav-link scrollto" href="#test" onclick="ChangeTab.goToTest();">Test</a>' +

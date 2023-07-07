@@ -10,8 +10,14 @@ use Firebase\JWT\Key;
  * )
  */
 Flight::route("GET /answers", function(){
+  $user = Flight::get('user');
+  if(isset($user)){
     Flight::json(Flight::answer_service()->get_all());
+  } else {
+    Flight::json(["message" => "User token doesn't exist."], 404);
+  }
 });
+  
 
 /**
   * @OA\Get(path="/answer_by_id", tags={"answers"}, security={{"ApiKeyAuth": {}}},
@@ -25,8 +31,14 @@ Flight::route("GET /answers", function(){
   * )
   */
 Flight::route("GET /answer_by_id", function(){
-    Flight::json(Flight::answer_service()->get_by_id(Flight::request()->query['id']));
- });
+  $user = Flight::get('user');
+  if(isset($user)){
+      Flight::json(Flight::answer_service()->get_by_id(Flight::request()->query['id']));
+  } else {
+    Flight::json(["message" => "User token doesn't exist."], 404);
+  }
+});
+    
 
  /**
   * @OA\Get(path="/answers/{id}", tags={"answers"}, security={{"ApiKeyAuth": {}}},
@@ -35,8 +47,14 @@ Flight::route("GET /answer_by_id", function(){
   * )
   */
 Flight::route("GET /answers/@id", function($id){
+  $user = Flight::get('user');
+  if(isset($user)){
     Flight::json(Flight::answer_service()->get_by_id($id));
+  } else {
+    Flight::json(["message" => "User token doesn't exist."], 404);
+  }
 });
+    
 
 /**
  * @OA\Delete(
@@ -55,9 +73,15 @@ Flight::route("GET /answers/@id", function($id){
  * )
  */
 Flight::route("DELETE /answers/@id", function($id){
+  $user = Flight::get('user');
+  if(isset($user)){
     Flight::answer_service()->delete($id);
     Flight::json(['message'=>"answer deleted successfully"]);
+  } else {
+    Flight::json(["message" => "User token doesn't exist."], 404);
+  }
 });
+    
 
 /**
 * @OA\Post(
@@ -83,12 +107,17 @@ Flight::route("DELETE /answers/@id", function($id){
 * )
 */
 Flight::route("POST /answers", function(){
+  $user = Flight::get('user');
+  if(isset($user)){
     $request= Flight::request()->data->getData();
     Flight::json(['message'=>"Answer added successfully",
                   'data'=>Flight::answer_service()->add($request)
                 ]);
-    
+  } else {
+    Flight::json(["message" => "User token doesn't exist."], 404);
+  }
 });
+
 
 /**
  * @OA\Put(
@@ -116,13 +145,19 @@ Flight::route("POST /answers", function(){
  */
 //update
 Flight::route("PUT /answers/@id", function($id){
+  $user = Flight::get('user');
+  if(isset($user)){
     $answer = Flight::request()->data->getData();
     #$response=$users_dao->update($user,$id);
     Flight::json(['message'=>"answer edit successfully",
                   'data'=>Flight::answer_service()->update($answer,$id)
                 ]);
-    
+  } else {
+    Flight::json(["message" => "User token doesn't exist."], 404);
+  }
 });
+    
+    
 
 
 ?>

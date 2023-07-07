@@ -1,3 +1,118 @@
+<!--
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>User Panel</title>
+    <link rel="stylesheet" href="assets/css/forms.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
+</head>
+<body>
+    <table id="users-table" class="table table-bordered">
+       
+    </table>
+
+
+    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#addUserModal"> Add user</button>
+
+    <div class="modal fade" id="addUserModal" role="dialog">
+        <div class="modal-dialog">
+      
+            <div class="modal-content">
+                <form id="addUserForm">
+                    <div class="modal-header">
+                        <h4 class="modal-title">New User</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="name">First Name:</label>
+                            <input type="text" id="name" name="name" required class="form-control" />
+                        </div>
+                        <div>
+                            <label for="surname">Last Name:</label>
+                            <input type="text" id="surname" name="surname" class="form-control" />
+                        </div>
+                        <div>
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" name="email" class="form-control" />
+                        </div>
+                        <div>
+                            <label for="password">Password:</label>
+                            <input type="password" id="password" name="password" class="form-control" />
+                        </div>
+                    </div>
+                    <div id="messageBox1"></div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-success">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="editUserModal" role="dialog">
+        <div class="modal-dialog">
+     
+            <div class="modal-content">
+                <form id="editUserForm">
+                    <div class="spinner-border" id="editModalSpinner" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                    <div class="modal-header">
+                        <h4 class="modal-title">Edit user</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <input id="edit_user_id" name="edit_user_id" hidden />
+                        <div class="form-group">
+                            <label for="name">First Name:</label>
+                            <input type="text" id="edit_first_name" name="name" required class="form-control" />
+                        </div>
+                        <div>
+                            <label for="surname">Last Name:</label>
+                            <input type="text" id="edit_last_name" name="surname" class="form-control" />
+                        </div>
+                        <div>
+                            <label for="email">Email:</label>
+                            <input type="email" id="edit_email" name="email" class="form-control" />
+                        </div>
+                        <div>
+                            <label for="password">Password:</label>
+                            <input type="password" id="edit_password" name="password" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="error"><span></span></div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-success">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="assets/js/admin-user-service.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            AdminUserService.init();
+        });
+    </script>
+</body>
+</html>
+
+
+-->
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,19 +126,29 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <!--<script src="assets/js/admin-user-service.js"></script>-->
+    <!--<script src="assets/js/config.js"></script>-->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css"
+    />
+    <script
+      type="text/javascript"
+      src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"
+    ></script>
 
 </head>
 <body>
     <table id="users-table" class="table table-bordered">
-        <!-- Table content will be populated dynamically -->
     </table>
 
-<!-- Add Modal -->
-<!--<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#addUserModal"> Add user</button>-->
+<!--Add modal-->
+<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#addUserModal"> Add user</button>
 
 <div class="modal fade" id="addUserModal" role="dialog">
     <div class="modal-dialog">
-        <!-- Modal content -->
+  
         <div class="modal-content">
             <form id="addUserForm">
                 <div class="modal-header">
@@ -59,11 +184,10 @@
         </div>
     </div>
 </div>
-
-<!-- Edit Modal -->
+<!--EditModal-->
 <div class="modal fade" id="editUserModal" role="dialog">
     <div class="modal-dialog">
-        <!-- Modal content-->
+        
         <div class="modal-content">
             <form id="editUserForm">
                 <div class="spinner-border" id="editModalSpinner" role="status">
@@ -126,7 +250,6 @@
                     </button>
                     <button
                         type="submit"
-                        onclick="editUser()"
                         class="btn btn-success"
                     >
                         Submit
@@ -140,10 +263,11 @@
 <table id="users-table"></table>
 
 <script type="text/javascript">
+    //AdminUserService.getUsers();
     // AJAX REQUEST TO GET ALL USERS
 
     getUsers();
-/*
+
     function getUsers() {
         $.get('rest/users', function (data) {
             var html = '';
@@ -162,35 +286,6 @@
             console.log(data);
         });
     }
-*/
-function getUsers() {
-    $.get('rest/users', function (data) {
-        var html = '';
-        
-        // Add row for "Add User" button
-        html +=
-            '<tr>' +
-            '<td colspan="4"></td>' +
-            '<td><button class="btn btn-success" data-toggle="modal" data-target="#addUserModal">Add User</button></td>' +
-            '</tr>';
-
-        $("#users-table").html(html);
-        console.log(data);
-        for (var i = 0; i < data.length; i++) {
-            html +=
-                '<tr>' +
-                '<td>' + data[i].name + '</td>' +
-                '<td>' + data[i].surname + '</td>' +
-                '<td>' + (data[i].email ? data[i].email:"No email address entered") + '</td>' +
-                '<td>' + data[i].password + '</td>' +
-                '<td><button class="btn btn-info" onclick="showEditDialog(' + data[i].id + ')">Edit User</button></td>' +
-                '</tr>';
-        }
-
-        $("#users-table").html(html);
-        console.log(data);
-    });
-}
 
     function showEditDialog(id) {
         $("#editUserModal").modal("show");

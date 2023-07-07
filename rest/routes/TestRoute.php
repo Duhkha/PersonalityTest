@@ -10,19 +10,31 @@ use Firebase\JWT\Key;
  */
 //gets question and answers for test
 Flight::route('GET /test', function(){
+    $user = Flight::get('user');
+  if(isset($user)){
     $questions = Flight::question_service()->get_all(); 
     foreach ($questions as &$question) {
         $answers = Flight::answer_service()->get_by_question_id($question['questionid']);
         $question['answers'] = $answers;
     }
     Flight::json($questions);
+  } else {
+    Flight::json(["message" => "User token doesn't exist."], 404);
+  }
 });
 
+
 Flight::route('POST /test_results', function(){
+    $user = Flight::get('user');
+  if(isset($user)){
     $request = Flight::request()->data->getData();
     $results = Flight::result_service()->add_results($request['userid'], $request['categoryApoints'], $request['categoryBpoints'], $request['categoryCpoints'], $request['categoryDpoints']);
     Flight::json(['message'=>"Test results saved successfully", 'data'=> $results]);
+  } else {
+    Flight::json(["message" => "User token doesn't exist."], 404);
+  }
 });
+    
 
 /**
  * @OA\Post(
@@ -55,12 +67,19 @@ Flight::route('POST /test_results', function(){
  * )
  */
 Flight::route('POST /test_results', function(){
+    $user = Flight::get('user');
+  if(isset($user)){
     $request = Flight::request()->data->getData();
     $type_id = calculate_type_id($request['categoryApoints'], $request['categoryBpoints'], $request['categoryCpoints'], $request['categoryDpoints']);
     $results_id = Flight::results_service()->add_test_results($request['user_id'], $request['categoryApoints'], $request['categoryBpoints'], $request['categoryCpoints'], $request['categoryDpoints']);
     $history_id = Flight::history_service()->add(['userid' => $request['user_id'], 'typeid' => $type_id, 'resultid' => $results_id]);
     Flight::json(['message'=>"Test results saved successfully", 'data'=> $history_id]);
+  } else {
+    Flight::json(["message" => "User token doesn't exist."], 404);
+  }
 });
+    
+
 
 
 

@@ -39,9 +39,9 @@ Flight::register('result_service',"ResultService");
 // middleware method for login
 Flight::route('/*', function(){ 
     $path = Flight::request()->url;
-    if ($path == '/login' || $path == '/docs.json') return TRUE; 
+    if ($path == '/login' || $path == '/docs.json') return TRUE;  // || $path=="/signup"
     $headers = getallheaders();
-    if (!$headers['Authorization']){
+    if (!isset($headers['Authorization'])){ //!$headers['Authorization']
       Flight::json(["message" => "Authorization is missing"], 403);
       return FALSE;
     }else{

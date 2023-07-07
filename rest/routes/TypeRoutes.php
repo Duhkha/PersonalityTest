@@ -12,8 +12,14 @@ use Firebase\JWT\Key;
  */
 
 Flight::route("GET /types", function(){
+  $user = Flight::get('user');
+  if(isset($user)){
     Flight::json(Flight::type_service()->get_all());
+  } else {
+    Flight::json(["message" => "User token doesn't exist."], 404);
+  }
 });
+
 
 /**
   * @OA\Get(path="/type_by_id", tags={"types"}, security={{"ApiKeyAuth": {}}},
@@ -27,8 +33,13 @@ Flight::route("GET /types", function(){
   * )
   */
 Flight::route("GET /type_by_id", function(){
+  $user = Flight::get('user');
+  if(isset($user)){
     Flight::json(Flight::type_service()->get_by_id(Flight::request()->query['id']));
- });
+  } else {
+    Flight::json(["message" => "User token doesn't exist."], 404);
+  }
+});
 
  
  /**
@@ -38,8 +49,14 @@ Flight::route("GET /type_by_id", function(){
   * )
   */
 Flight::route("GET /types/@id", function($id){
+  $user = Flight::get('user');
+  if(isset($user)){
     Flight::json(Flight::type_service()->get_by_id($id));
+  } else {
+    Flight::json(["message" => "User token doesn't exist."], 404);
+  }
 });
+    
 
 /**
  * @OA\Delete(
@@ -58,8 +75,13 @@ Flight::route("GET /types/@id", function($id){
  * )
  */
 Flight::route("DELETE /types/@id", function($id){
+  $user = Flight::get('user');
+  if(isset($user)){
     Flight::type_service()->delete($id);
     Flight::json(['message'=>"type deleted successfully"]);
+  } else {
+    Flight::json(["message" => "User token doesn't exist."], 404);
+  }
 });
 
 /**
@@ -87,12 +109,17 @@ Flight::route("DELETE /types/@id", function($id){
 * )
 */
 Flight::route("POST /types", function(){
+  $user = Flight::get('user');
+  if(isset($user)){
     $request= Flight::request()->data->getData();
     Flight::json(['message'=>"type added successfully",
                   'data'=>Flight::type_service()->add($request)
                 ]);
-    
+  } else {
+    Flight::json(["message" => "User token doesn't exist."], 404);
+  }
 });
+    
 
 /**
  * @OA\Put(
@@ -121,13 +148,17 @@ Flight::route("POST /types", function(){
  */
 //update
 Flight::route("PUT /types/@id", function($id){
+  $user = Flight::get('user');
+  if(isset($user)){
     $type = Flight::request()->data->getData();
-    #$response=$users_dao->update($user,$id);
     Flight::json(['message'=>"type edit successfully",
                   'data'=>Flight::type_service()->update($type,$id)
                 ]);
-    
+  } else {
+    Flight::json(["message" => "User token doesn't exist."], 404);
+  }
 });
+    
 
 
 
