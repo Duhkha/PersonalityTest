@@ -1,37 +1,49 @@
 $(document).ready(function() {
+  
+
     $.ajax({
-      url: "/PersonalityTest/rest/test", //replace
+      url: "/Dedsec/rest/test", //replace
       method: "GET",
       success: function(response) {
+        
         console.log(response);
         renderTest(response);
         attachCheckForCompletion();
+        
       },
       error: function(error) {
+        
         console.log("Error: ", error);
+       
       }
     });
   
     function renderTest(questions) {
       questions.forEach((question, index) => {
-        const questionHTML = `
-          <div class="question py-5 " data-aos="fade-left" data-category="${question.category}">
-            <div class="icon-box" data-aos="zoom-in" data-aos-delay="100">
-              <h4 class="title" style="color: #2be4a2;">${index + 1}. ${question.question}</h4>
-              <ul>
-                ${question.answers
-                  .map(
-                    (answer) =>
-                      `<li><input type="radio" name="q${index + 1}" value="${answer.points}"> ${answer.answer}</li>`
-                  )
-                  .join("")}
-              </ul>
-            </div>
-          </div>`;
-  
-        document.getElementById("TestDiv").insertAdjacentHTML("beforeend", questionHTML);
+          const questionHTML = `
+              <div class="question py-5 centerContent" data-aos="fade-left" data-category="${question.category}">
+                  <div class="icon-box" data-aos="zoom-in" data-aos-delay="100">
+                      <h4 class="title" style="color: #2be4a2;">${index + 1}. ${question.question}</h4>
+                      <ul class="list-unstyled">
+                          ${question.answers
+                              .map(
+                                  (answer) =>
+                                      `<li>
+                                          <div class="answer">
+                                              <input type="radio" name="q${index + 1}" value="${answer.points}">
+                                              <label>${answer.answer}</label>
+                                          </div>
+                                      </li>`
+                              )
+                              .join("")}
+                      </ul>
+                  </div>
+              </div>`;
+          document.querySelector("#questionsDiv").insertAdjacentHTML("beforeend", questionHTML);
       });
-    }
+  }
+  
+  
   
     function attachCheckForCompletion() {
         const submitButton = document.getElementById("submitButton");
@@ -74,7 +86,7 @@ $(document).ready(function() {
           } else {
             // Send the points to the backend
             $.ajax({
-              url: "/PersonalityTest/rest/results", 
+              url: "/Dedsec/rest/results", 
               method: "POST",
               contentType: "application/json",
               data: JSON.stringify({
@@ -91,12 +103,12 @@ $(document).ready(function() {
                 const resultId = response.data.id; 
       
 
-                document.getElementById("TestDiv").style.display = "none";
+                document.getElementById("questionsDiv").style.display = "none";
                 document.getElementById("submitButton").style.display = "none";
-
+                
                 // Insert data into histories table
                 $.ajax({
-                  url: "/PersonalityTest/rest/histories", // Replace 
+                  url: "/Dedsec/rest/histories", // Replace 
                   method: "POST",
                   contentType: "application/json",
                   data: JSON.stringify({
@@ -114,28 +126,35 @@ $(document).ready(function() {
                 });
 
                 $.ajax({
-                    url: "/PersonalityTest/rest/types/" + typeId, // Replace 
-                    method: "GET",
-                    success: function(typeResponse) {
-                        
-                        console.log(typeResponse);
+                  url: "/Dedsec/rest/types/" + typeId, // Replace 
+                  method: "GET",
+                  success: function(typeResponse) {
+                      console.log(typeResponse);
+              
+                      // Hide the submit button
+                      document.getElementById("submitButton").style.display = "none";
+              
+                      // Update the type name and description
+                      var typeName = document.getElementById("typeName");
+                      typeName.textContent = typeResponse[0].name;  //ovdje je name od type
+                      typeName.style.display = "block";
+              
+                      var typeDesc = document.getElementById("typeDesc");
+                      typeDesc.textContent = typeResponse[0].description;  //i description
+                      typeDesc.style.display = "block";
+              
+                      let randomIndex = Math.floor(Math.random() * 4) + 1; // Generate a random number between 1 and 4
+                      let resultImage = document.getElementById("resultImage");
+                      resultImage.innerHTML = `<img src="assets/img/details-${randomIndex}.png" class="img-fluid" alt="${typeName.textContent}">`;
+                      
 
-                        
-                        document.getElementById("submitButton").style.display = "none";
-        
-                        var typeName = document.getElementById("typeName");
-                        typeName.textContent = typeResponse[0].name;  //ovdje je name od type
-                        typeName.style.display = "block";  
-
-                        var typeDesc = document.getElementById("typeDesc");
-                        typeDesc.textContent = typeResponse[0].description;  //i description
-                        typeDesc.style.display = "block";
-
-                    },
-                    error: function(typeError) {
-                        console.log("Error:", typeError);
-                    },
-                });
+                     
+                  },
+                  error: function(typeError) {
+                      console.log("Error:", typeError);
+                  },
+              });
+              
 
 
 
