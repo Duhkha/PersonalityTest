@@ -2,7 +2,7 @@ $(document).ready(function() {
   
 
     $.ajax({
-      url: "/Dedsec/rest/test", //replace
+      url: "/PersonalityTest/rest/test", //replace
       method: "GET",
       success: function(response) {
         
@@ -86,7 +86,7 @@ $(document).ready(function() {
           } else {
             // Send the points to the backend
             $.ajax({
-              url: "/Dedsec/rest/results", 
+              url: "/PersonalityTest/rest/results", 
               method: "POST",
               contentType: "application/json",
               data: JSON.stringify({
@@ -108,7 +108,7 @@ $(document).ready(function() {
                 
                 // Insert data into histories table
                 $.ajax({
-                  url: "/Dedsec/rest/histories", // Replace 
+                  url: "/PersonalityTest/rest/histories", // Replace 
                   method: "POST",
                   contentType: "application/json",
                   data: JSON.stringify({
@@ -126,7 +126,7 @@ $(document).ready(function() {
                 });
 
                 $.ajax({
-                  url: "/Dedsec/rest/types/" + typeId, // Replace 
+                  url: "/PersonalityTest/rest/types/" + typeId, // Replace 
                   method: "GET",
                   success: function(typeResponse) {
                       console.log(typeResponse);

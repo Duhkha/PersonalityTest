@@ -121,23 +121,28 @@
 
 
   <!-- ======= Test Section ======= -->
-<div id="TestDiv">
-  <section id="test" class="faq section-bg">
-      <div class="container">
-          <div class="section-title" data-aos="fade-up">
-              <h2>IT</h2>
-              <p>TAKE THE TEST</p>
-          </div>
-          <h1>Decode Your IT Personality with <span>Tech Persona</span></h1>
-      </div>
-  </section>
-</div>
-<button id="submitButton">Submit</button>
-<p id="errorMsg" style="display: none; color: red;">Please answer all questions before submitting.</p>
-<p id="typeName" style="display: none; color: green; font-size: 2em;"></p>
-<p id="typeDesc" style="display: none; color: green; font-size: 2em;"></p>
-
-
+  <div id="TestDiv" class="test">
+    <section id="test" class="faq section-bg">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2>IT</h2>
+                <p>TAKE THE TEST</p>
+            </div>
+            <h1>Decode Your IT Personality with <span>Tech Persona</span></h1>
+            <!-- Questions will be inserted here -->
+            <div id="questionsDiv">
+              <!-- Questions will be inserted here -->
+            </div>
+              <p id="typeName" style="display: none; font-size: 26px; color: #010483; text-align: left; font-weight: 600; font-family: 'Montserrat', sans-serif;"></p>
+              <p id="typeDesc" style="display: none; font-size: 26px; color: #444444; text-align: left; font-family: 'Open Sans', sans-serif;"></p>
+              <div id="resultImage" class="col-md-4"></div>
+        </div>      
+    </section>
+  
+    <div id="testSpinner"></div>
+    <button id="submitButton" >Submit</button>
+    <p id="errorMsg" style="display: none; color: red; text-align: center;">Please answer all questions before submitting.</p>
+  </div>
 
 <!-- End test Section -->
 
