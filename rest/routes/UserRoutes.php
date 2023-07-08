@@ -50,27 +50,47 @@ Flight::route('PUT /users/@id', function($id){
     
 });
 
-//we will skip the service and do everything in the routes when it comes to login
-
 Flight::route('POST /login', function(){
     $login = Flight::request()->data->getData();
-    $user = Flight::user_service()->get_user_by_email($login['email']); //userDao preimenovala u user_Service
+    $user = Flight::user_service()->get_user_by_email($login['email']);
     if(count($user) > 0){
         $user = $user[0];
-    }
-    if (isset($user['userid'])){
-      if($user['password'] == md5($login['password'])){
-        unset($user['password']);
-        $user['is_admin'] = true;
-        $jwt = JWT::encode($user, Config::JWT_SECRET(), 'HS256');
-        Flight::json(['token' => $jwt]);
-      }else{
-        Flight::json(["message" => "Wrong password"], 404);
-      }
+        if($user['password'] == md5($login['password'])){
+            unset($user['password']);
+            $user['is_admin'] = false;
+            $jwt = JWT::encode($user, Config::JWT_SECRET(), 'HS256');
+            Flight::json(['token' => $jwt]);
+        }else{
+            Flight::json(["message" => "Wrong password"], 401);
+        }
     }else{
-      Flight::json(["message" => "User doesn't exist"], 404);
-  }
+        Flight::json(["message" => "User doesn't exist"], 404);
+    }
 });
+
+Flight::route('POST /signup', function(){
+    $signup = Flight::request()->data->getData();
+    $user = Flight::user_service()->get_user_by_email($signup['email']);
+    
+    if(count($user) > 0){
+        Flight::json(["message" => "User with that email is already registered. Please choose a different email or log in instead."], 400);
+    } elseif(strlen($signup['password']) < 6 || !preg_match('/[A-Za-z]/', $signup['password']) || !preg_match('/\d/', $signup['password'])){
+        Flight::json(["message" => "Password should contain at least 6 characters and contain at least one letter and one number."], 400);
+    } else {
+        $new_user = new stdClass();
+        $new_user->name = $signup['name'];
+        $new_user->surname = $signup['surname'];
+        $new_user->email = $signup['email'];
+        $new_user->password = md5($signup['password']); // Hash the password using MD5
+        $new_user_array = (array) $new_user;
+        $added_user = Flight::user_service()->add($new_user_array);
+        unset($added_user['password']);
+        $jwt = JWT::encode($added_user, Config::JWT_SECRET(), 'HS256');
+        Flight::json(['token' => $jwt]);
+    }
+});
+
+
 
 //other routes
 

@@ -7,6 +7,8 @@ var ChangeTab = {
         $("#FeaturesDiv").css({ "display": "none" });
         $("#FAQDiv").css({ "display": "none" });
         $("#AboutDiv").css({ "display": "none" });
+        $("#AdminUserDiv").css({ "display": "none" });
+        $("#AdminTypeDiv").css({ "display": "none" });
         
     },
     
@@ -17,6 +19,8 @@ var ChangeTab = {
         $("#FeaturesDiv").css({ "display": "none" });
         $("#FAQDiv").css({ "display": "none" });
         $("#AboutDiv").css({ "display": "none" });
+        $("#AdminUserDiv").css({ "display": "none" });
+        $("#AdminTypeDiv").css({ "display": "none" });
     },
 
     goToTypes: function () {
@@ -26,6 +30,8 @@ var ChangeTab = {
         $("#FeaturesDiv").css({ "display": "none" });
         $("#FAQDiv").css({ "display": "none" });
         $("#AboutDiv").css({ "display": "none" });
+        $("#AdminUserDiv").css({ "display": "none" });
+        $("#AdminTypeDiv").css({ "display": "none" });
     },
 
     goToFeatures: function () {
@@ -35,6 +41,8 @@ var ChangeTab = {
         $("#HeroDiv").css({ "display": "none" });
         $("#FAQDiv").css({ "display": "none" });
         $("#AboutDiv").css({ "display": "none" });
+        $("#AdminUserDiv").css({ "display": "none" });
+        $("#AdminTypeDiv").css({ "display": "none" });
     },
 
     goToFAQ: function () {
@@ -45,6 +53,8 @@ var ChangeTab = {
        $("#FeaturesDiv").css({ "display": "none" });
        $("#HeroDiv").css({ "display": "none" });
        $("#AboutDiv").css({ "display": "none" });
+       $("#AdminUserDiv").css({ "display": "none" });
+       $("#AdminTypeDiv").css({ "display": "none" });
     },
 
     goToAbout: function () { //goToAbout: function (user_id) {
@@ -54,8 +64,30 @@ var ChangeTab = {
         $("#FeaturesDiv").css({ "display": "none" });
         $("#FAQDiv").css({ "display": "none" });
         $("#HeroDiv").css({ "display": "none" });
+        $("#AdminUserDiv").css({ "display": "none" });
+        $("#AdminTypeDiv").css({ "display": "none" });
     },
 
+    goToAdminUser: function () { //goToAbout: function (user_id) {
+        $("#AdminUserDiv").css({ "display": "block" });
+        $("#AdminTypeDiv").css({ "display": "none" });
+        $("#AboutDiv").css({ "display": "none" });
+        $("#TestDiv").css({ "display": "none" });
+        $("#TypesDiv").css({ "display": "none" });
+        $("#FeaturesDiv").css({ "display": "none" });
+        $("#FAQDiv").css({ "display": "none" });
+        $("#HeroDiv").css({ "display": "none" });
+    },
+    goToAdminTypes: function () { //goToAbout: function (user_id) {
+        $("#AdminTypeDiv").css({ "display": "block" });
+        $("#AdminUserDiv").css({ "display": "none" });
+        $("#AboutDiv").css({ "display": "none" });
+        $("#TestDiv").css({ "display": "none" });
+        $("#TypesDiv").css({ "display": "none" });
+        $("#FeaturesDiv").css({ "display": "none" });
+        $("#FAQDiv").css({ "display": "none" });
+        $("#HeroDiv").css({ "display": "none" });
+    }
   
 
 

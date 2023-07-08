@@ -34,16 +34,11 @@
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css"> <!--import css to html-->
-  <!--<link rel="stylesheet" href="assets/css/custom.css">-->
-  <!--<link rel="stylesheet" href="assets/css/forms.css">-->
   <link rel="stylesheet" href="assets/css/spapp.css">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="assets/js/student-service.js"></script>
   <script src="assets/js/utils.js"></script>
   <script src="assets/js/rest-client.js"></script>
   <script src="config.js"></script>
-
-
 
 </head>
 
@@ -62,7 +57,8 @@
 
       <nav id="navbar" class="navbar" >
         <ul id="tabs">
-          <a class="nav-link scrollto active" href="#hero" onclick="ChangeTab.goToHome();"></a>  
+          <a class="nav-link scrollto active" href="#hero" onclick="ChangeTab.goToHome();"></a> 
+
          <!-- <li></li>-->
           <!--
           <li><a class="nav-link scrollto" href="#test" >Test</a></li>
@@ -140,9 +136,6 @@
 <p id="errorMsg" style="display: none; color: red;">Please answer all questions before submitting.</p>
 <p id="typeName" style="display: none; color: green; font-size: 2em;"></p>
 <p id="typeDesc" style="display: none; color: green; font-size: 2em;"></p>
-
-
-
 <!-- End test Section -->
 
 
@@ -872,7 +865,6 @@
         <div class="row">
           <div class="col-xl-5 col-lg-6 video-box d-flex justify-content-center align-items-stretch"
             data-aos="fade-right">
-            <!-- <a href="https://www.youtube.com/watch?v=StpBR2W8G5A" class="glightbox play-btn mb-4"></a>-->
             <img src="assets/img/gallery/about.jpg" class="img-fluid" alt="">
           </div>
 
@@ -886,12 +878,11 @@
               Experience our user-friendly platform, receive
               comprehensive reports with personalized recommendations, and access our blog for valuable insights and
               resources.
-
             </p>
 
             <div class="icon-box" data-aos="zoom-in" data-aos-delay="100">
               <div class="icon"><i class="bx bx-fingerprint"></i></div>
-              <h4 class="title">Our Experts<!--<a href=""></a>--></h4>
+              <h4 class="title">Our Experts</h4>
               <p class="description"> Our expert team combines their deep understanding of the industry with
                 cutting-edge psychometric tools to
                 offer tailored personality tests that unveil your unique qualities and guide you towards IT roles
@@ -901,7 +892,7 @@
 
             <div class="icon-box" data-aos="zoom-in" data-aos-delay="200">
               <div class="icon"><i class="bx bx-atom"></i></div>
-              <h4 class="title">Discover yourself <!--<a href=""></a>--></h4>
+              <h4 class="title">Discover yourself</h4>
               <p class="description"> Join us on this transformative journey of self-discovery, unlocking your true
                 potential and
                 shaping a successful IT career that resonates with who you are. Welcome to a world of possibilities in
@@ -926,10 +917,23 @@
   </div>
   <!-- End About Section -->
 
+  <!--Admin Panel - Users-->
+    <div id="AdminUserDiv" style="display:none">
+      <section id="adminusers" >
+        
+      </section>
+    </div>
+  <!--End Admin Panel - Users-->
+
+  <!--Admin Panel - Types-->
+  <div id="AdminTypeDiv" style="display:none">
+    <section id="admintypes" >
+      
+    </section>
+  </div>
+  <!--End Admin Panel - Users-->
 
   <!--</main>--><!-- End #main -->
-
-
 
   <!-- ======= Footer ======= -->
   <footer id="footer">
@@ -954,7 +958,6 @@
             <ul>
               <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="#TestDiv">Take Test</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Features</a></li>
             </ul>
           </div>
 
@@ -994,10 +997,7 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
-  <!--<script src="assets/js/custom.js"></script>-->
   <script src="config.js"></script>
-  <!--<script src="assets/js/jquery.spapp.js"></script>-->
-  <!--<script src="assets/js/jquery.spapp.min.js"></script>-->
   <script src="assets/js/ChangeTab.js"></script>
 
 
@@ -1041,7 +1041,7 @@
 var token = localStorage.getItem("user_token");
 if (token) {
   var user = Utils.parseJwt(token);
-  if (user.is_admin) {
+  if (!user.is_admin) {
     var nav =
       '<li class="nav-item">' +
       '<a class="nav-link scrollto" href="#test" onclick="ChangeTab.goToTest();">Test</a>' +
@@ -1059,6 +1059,12 @@ if (token) {
       '<a class="nav-link scrollto" href="#about" onclick="ChangeTab.goToAbout();" >About</a>' +
       '</li>'+
       '<li class="nav-item">' +
+      '<a class="nav-link" href="#adminusers" onclick="ChangeTab.goToAdminUser();">Admin Panel - Users</a>'+
+      '</li>' +
+      '<li class="nav-item">' +
+      '<a class="nav-link" href="#admintypes" onclick="ChangeTab.goToAdminTypes();">Admin Panel - Types</a>'+
+      '</li>' +
+      '<li class="nav-item">' +
       '<a class="nav-link" href="#" onclick="UserService.logout()">Logout</a>'+
       '</li>';
 
@@ -1070,15 +1076,26 @@ if (token) {
       '<section id="features"></section>' +
       '<section id="faq"></section>' +
       '<section id="about"></section>' +
+      '<section id="adminusers"></section>' +
+      '<section id="admintypes"></section>' +
       '<section id="hero"></section>';
     $("#spapp").html(main);
   } else {
     var nav =
+    '<li class="nav-item">' +
+      '<a class="nav-link scrollto" href="#test" onclick="ChangeTab.goToTest();">Test</a>' +
+      '</li>' +
       '<li class="nav-item">' +
       '<a class="nav-link scrollto" href="#types" onclick="ChangeTab.goToTypes();">Types</a>' +
       '</li>' +
       '<li class="nav-item">' +
       '<a class="nav-link scrollto" href="#features" onclick="ChangeTab.goToFeatures();" >Features</a>' +
+      '</li>' +
+      '<li class="nav-item">' +
+      '<a class="nav-link scrollto" href="#faq" onclick="ChangeTab.goToFAQ();" >FAQ</a>' +
+      '</li>' +
+      '<li class="nav-item">' +
+      '<a class="nav-link scrollto" href="#about" onclick="ChangeTab.goToAbout();" >About</a>' +
       '</li>'+
       '<li class="nav-item">' +
       '<a class="nav-link" href="#" onclick="UserService.logout()">Logout</a>'+
@@ -1086,8 +1103,11 @@ if (token) {
     $("#tabs").html(nav);
 
     var main =
+    '<section id="test"></section>' +
       '<section id="types"></section>' +
       '<section id="features"></section>' +
+      '<section id="faq"></section>' +
+      '<section id="about"></section>' +
       '<section id="hero"></section>';
     $("#spapp").html(main);
   }

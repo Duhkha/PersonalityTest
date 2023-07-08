@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Panel - User</title>
+    <link rel="stylesheet" href="assets/css/forms.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <link rel="stylesheet" href="assets/css/admin.css">
+</head>
+<body>
+    <table id="users-table">
+        <!-- Table content will be populated dynamically -->
+    </table>
+
+    <!-- Add Modal -->
+    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#addUserModal">Add user</button>
+
+    <div class="modal fade" id="addUserModal" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content -->
+            <div class="modal-content" id="addStudentModal">
+                <form id="addUserForm">
+                    <div class="modal-header">
+                        <h4 class="modal-title">New User</h4>
+                        <button type="button" class="close" data-dismiss="modal">
+                            &times;
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="name">First Name:</label>
+                            <input type="text" id="name" name="name" required class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label for="surname">Last Name:</label>
+                            <input type="text" id="surname" name="surname" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" name="email" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password:</label>
+                            <input type="password" id="password" name="password" class="form-control" />
+                        </div>
+                    </div>
+                    <div id="messageBox1"></div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" id="close_button" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-success">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+   
+    <!-- Edit User Modal -->
+    <div class="modal fade" id="editUserModal" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content -->
+            <div class="modal-content">
+                <form id="editUserForm">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Edit User</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <input type="hidden" id="editUserId" name="id" />
+                        <div class="form-group">
+                            <label for="editName">First Name:</label>
+                            <input type="text" id="editName" name="name" required class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label for="editSurname">Last Name:</label>
+                            <input type="text" id="editSurname" name="surname" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label for="editEmail">Email:</label>
+                            <input type="email" id="editEmail" name="email" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label for="editPassword">Password:</label>
+                            <input type="password" id="editPassword" name="password" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-success">Save</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // AJAX REQUEST TO GET ALL USERS
+        getUsers();
+
+        function getUsers() {
+            $.get('rest/users', function (data) {
+                var html = '';
+                for (var i = 0; i < data.length; i++) {
+                    html += '<tr>' +
+                        '<td>' + data[i].name + '</td>' +
+                        '<td>' + data[i].surname + '</td>' +
+                        '<td>' + data[i].email + '</td>' +
+                        '<td>' + data[i].password + '</td>' +
+                        '<td><button class="btn btn-info" onClick="editUser(' + data[i].id + ')">Edit User</button></td>' +
+                        '</tr>';
+                }
+                $("#users-table").html(html);
+                console.log(data);
+            });
+        }
+
+        $('#editUserModal').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget); // Button that triggered the modal
+            var userId = button.data('id'); // Extract user ID from data-id attribute
+            var modal = $(this);
+
+            // Make an AJAX GET request to fetch the user details
+            $.get('rest/users/' + userId, function (data) {
+                // Populate the form fields with the retrieved user data
+                modal.find('#editUserId').val(data.id);
+                modal.find('#editName').val(data.name);
+                modal.find('#editSurname').val(data.surname);
+                modal.find('#editEmail').val(data.email);
+                modal.find('#editPassword').val(data.password);
+
+                // Update the form submission handler to send a PUT request to update the user details
+                $('#editUserForm').off('submit').on('submit', function (event) {
+                    event.preventDefault();
+                    var formData = $(this).serialize();
+
+                    $.ajax({
+                        url: 'rest/users/' + userId,
+                        type: 'PUT',
+                        data: formData,
+                        success: function () {
+                            toastr.success("User updated");
+                            $('#editUserModal').modal('hide');
+                            getUsers();
+                        },
+                        error: function () {
+                            toastr.error("Failed to update user");
+                        }
+                    });
+                });
+            });
+        });
+
+        $(document).ready(function () {
+            $.validator.addMethod(
+                "email",
+                function (value, element) {
+                    return this.optional(element) || /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i.test(value);
+                },
+                "Please enter a valid email address!"
+            );
+
+            $("#addUserForm").validate({
+                focusCleanup: true,
+                errorElement: "em",
+                rules: {
+                    name: "required",
+                    surname: "required",
+                    password: {
+                        required: true,
+                        minlength: 2,
+                        maxlength: 10,
+                    },
+                },
+                messages: {
+                    name: "Please enter your first name",
+                    surname: "Please enter your last name",
+                    email: "Please enter a valid email address",
+                    password: {
+                        required: "Please provide a password",
+                        minlength: "Your password must be at least 2 characters long",
+                        maxlength: "Your password cannot exceed 10 characters",
+                    }
+                },
+                highlight: function (element, errorClass) {
+                    $(element).fadeOut(function () {
+                        $(element).fadeIn();
+                    });
+                },
+                errorPlacement: function (error, element) {
+                    error.appendTo("#messageBox1");
+                },
+                submitHandler: function (form) {
+                    $.post("rest/users", $("#addUserForm").serialize())
+                        .done(function () {
+                            toastr.success("User added");
+                            $("#addUserModal").modal("toggle");
+                            getUsers();
+                            form.reset();
+                        })
+                        .fail(function () {
+                            toastr.error("User not added");
+                        });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
