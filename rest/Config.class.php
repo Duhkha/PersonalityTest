@@ -10,15 +10,15 @@ class Config{
     }
 
     public static function DB_PASSWORD(){
-        return Config::get_env("DB_PASSWORD", "maliprinc");
+        return Config::get_env("DB_PASSWORD", "root");
     }
 //DBNAME
     public static function DB_SCHEMA(){
-        return Config::get_env("DB_SCHEMA", "personalitydb"); 
+        return Config::get_env("DB_SCHEMA", "personalitytest"); 
     }
 
     public static function DB_PORT(){
-        return Config::get_env("DB_PORT", "3307");
+        return Config::get_env("DB_PORT", "3306");
     }
 
     public static function JWT_SECRET(){

@@ -81,7 +81,7 @@ Flight::route('POST /signup', function(){
         $new_user->name = $signup['name'];
         $new_user->surname = $signup['surname'];
         $new_user->email = $signup['email'];
-        $new_user->password = md5($signup['password']); // Hash the password using MD5
+        $new_user->password = $signup['password']; // Hash the password using MD5
         $new_user_array = (array) $new_user;
         $added_user = Flight::user_service()->add($new_user_array);
         unset($added_user['password']);
