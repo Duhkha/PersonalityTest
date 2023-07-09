@@ -1,5 +1,5 @@
 <?php
-
+/*
 class Config{
     public static function DB_HOST(){
         return Config::get_env("DB_HOST", "localhost");
@@ -30,7 +30,6 @@ class Config{
     }
 }
 
-/*
 class Config{
     public static function DB_HOST(){
         return 'localhost';
@@ -53,7 +52,7 @@ class Config{
     }
 }
 
-
+*/
 
 class Config{
     public static function DB_HOST(){
@@ -84,5 +83,5 @@ class Config{
         return isset($_ENV[$name]) && trim($_ENV[$name]) != '' ? $_ENV[$name] : $default;
     }
 }
-*/
+
 ?>
