@@ -1,5 +1,5 @@
 $.ajax({
-    url: '/Dedsec/rest/types/',
+    url: '/PersonalityTest/rest/types/',
     type: 'GET',
     success: function(data) {
         console.log(data);

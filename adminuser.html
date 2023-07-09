@@ -6,64 +6,136 @@
     <link rel="stylesheet" href="assets/css/forms.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <link rel="stylesheet" href="assets/css/admin.css">
+</head>
+<body>
+
+<!--Add modal-->
+<!-- Add modal -->
+<button type="button" class="btn btn-info" data-toggle="modal" data-target="#addUserModal">Add user</button>
+
+<div class="modal fade" id="addUserModal" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <form id="addUserForm">
+                <div class="modal-header">
+                    <h4 class="modal-title">New User</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="name">First Name:</label>
+                        <input type="text" id="name" name="name" required class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label for="surname">Last Name:</label>
+                        <input type="text" id="surname" name="surname" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password:</label>
+                        <input type="password" id="password" name="password" class="form-control" />
+                    </div>
+                </div>
+                <div id="messageBox1"></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-success">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<table id="users-table">
+    <!-- Table content will be populated dynamically -->
+</table>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+<script src="assets/js/admin-user.js"></script>
+</body>
+</html>
+
+
+<!--<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Panel - User</title>
+    <link rel="stylesheet" href="assets/css/forms.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <script
+    type="text/javascript"
+    src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"
+  ></script>
+  <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css"
+    />
     <link rel="stylesheet" href="assets/css/admin.css">
 </head>
 <body>
-    <table id="users-table">
-        <!-- Table content will be populated dynamically -->
-    </table>
 
-    <!-- Add Modal -->
-    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#addUserModal">Add user</button>
+<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#addUserModal">Add user</button>
 
-    <div class="modal fade" id="addUserModal" role="dialog">
-        <div class="modal-dialog">
-            <!-- Modal content -->
-            <div class="modal-content" id="addStudentModal">
-                <form id="addUserForm">
-                    <div class="modal-header">
-                        <h4 class="modal-title">New User</h4>
-                        <button type="button" class="close" data-dismiss="modal">
-                            &times;
-                        </button>
+<div class="modal fade" id="addUserModal" role="dialog">
+    <div class="modal-dialog">
+   
+        <div class="modal-content">
+            <form id="addUserForm">
+                <div class="modal-header">
+                    <h4 class="modal-title">New User</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="name">First Name:</label>
+                        <input type="text" id="name" name="name" required class="form-control" />
                     </div>
-                    <div class="modal-body">
-                        <div class="form-group">
-                            <label for="name">First Name:</label>
-                            <input type="text" id="name" name="name" required class="form-control" />
-                        </div>
-                        <div class="form-group">
-                            <label for="surname">Last Name:</label>
-                            <input type="text" id="surname" name="surname" class="form-control" />
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email:</label>
-                            <input type="email" id="email" name="email" class="form-control" />
-                        </div>
-                        <div class="form-group">
-                            <label for="password">Password:</label>
-                            <input type="password" id="password" name="password" class="form-control" />
-                        </div>
+                    <div class="form-group">
+                        <label for="surname">Last Name:</label>
+                        <input type="text" id="surname" name="surname" class="form-control" />
                     </div>
-                    <div id="messageBox1"></div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" id="close_button" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-success">Submit</button>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" class="form-control" />
                     </div>
-                </form>
-            </div>
+                    <div class="form-group">
+                        <label for="password">Password:</label>
+                        <input type="password" id="password" name="password" class="form-control" />
+                    </div>
+                </div>
+                <div id="messageBox1"></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-success">Submit</button>
+                </div>
+            </form>
         </div>
     </div>
-   
-    <!-- Edit User Modal -->
+</div>
+<table id="users-table">
+ 
+</table>
+  
     <div class="modal fade" id="editUserModal" role="dialog">
         <div class="modal-dialog">
-            <!-- Modal content -->
+           
             <div class="modal-content">
                 <form id="editUserForm">
                     <div class="modal-header">
@@ -119,7 +191,7 @@
             });
         }
 
-        $('#editUserModal').on('show.bs.modal', function (event) {
+      /*  $('#editUserModal').on('show.bs.modal', function (event) {
             var button = $(event.relatedTarget); // Button that triggered the modal
             var userId = button.data('id'); // Extract user ID from data-id attribute
             var modal = $(this);
@@ -154,7 +226,7 @@
                 });
             });
         });
-
+*/
         $(document).ready(function () {
             $.validator.addMethod(
                 "email",
@@ -211,3 +283,4 @@
     </script>
 </body>
 </html>
+-->
