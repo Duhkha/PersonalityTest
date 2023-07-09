@@ -1,4 +1,8 @@
 $(document).ready(function() {
+
+  $("#testSpinner").show();
+    $("#submitButton").hide();
+
   
 
     $.ajax({
@@ -9,39 +13,46 @@ $(document).ready(function() {
         console.log(response);
         renderTest(response);
         attachCheckForCompletion();
+        $("#testSpinner").hide();
+        $("#submitButton").show();
         
       },
       error: function(error) {
         
         console.log("Error: ", error);
-       
+        $("#testSpinner").hide();
       }
     });
   
     function renderTest(questions) {
       questions.forEach((question, index) => {
-          const questionHTML = `
-              <div class="question py-5 centerContent" data-aos="fade-left" data-category="${question.category}">
-                  <div class="icon-box" data-aos="zoom-in" data-aos-delay="100">
-                      <h4 class="title" style="color: #2be4a2;">${index + 1}. ${question.question}</h4>
-                      <ul class="list-unstyled">
-                          ${question.answers
-                              .map(
-                                  (answer) =>
-                                      `<li>
-                                          <div class="answer">
-                                              <input type="radio" name="q${index + 1}" value="${answer.points}">
-                                              <label>${answer.answer}</label>
-                                          </div>
-                                      </li>`
-                              )
-                              .join("")}
-                      </ul>
-                  </div>
-              </div>`;
-          document.querySelector("#questionsDiv").insertAdjacentHTML("beforeend", questionHTML);
+        const questionHTML = `
+          <div class="question py-5" data-aos="fade-left" data-category="${question.category}">
+            <div class="icon-box" data-aos="zoom-in" data-aos-delay="100">
+              <h4 class="title" style="color: #2be4a2;">${index + 1}. ${question.question}</h4>
+              <ul class="list-unstyled">
+                ${question.answers
+                  .map(
+                    (answer) => `
+                      <li>
+                        <div class="answer">
+                          <input type="radio" name="q${index + 1}" value="${answer.points}">
+                          <label> ${answer.answer}</label>
+                        </div>
+                      </li>
+                    `
+                  )
+                  .join("")}
+              </ul>
+            </div>
+          </div>`;
+        document.querySelector("#questionsDiv").insertAdjacentHTML("beforeend", questionHTML);
       });
-  }
+    }
+    
+    
+    
+    
   
   
   
@@ -85,6 +96,15 @@ $(document).ready(function() {
             document.getElementById("errorMsg").style.display = "block"; 
           } else {
             // Send the points to the backend
+
+            $("#submitButton").hide();
+            $("#testSpinner").show();
+            document.getElementById("questionsDiv").style.display = "none";
+
+
+
+
+
             $.ajax({
               url: "/PersonalityTest/rest/results", 
               method: "POST",
@@ -103,8 +123,8 @@ $(document).ready(function() {
                 const resultId = response.data.id; 
       
 
-                document.getElementById("questionsDiv").style.display = "none";
-                document.getElementById("submitButton").style.display = "none";
+                //document.getElementById("questionsDiv").style.display = "none";
+                //document.getElementById("submitButton").style.display = "none";
                 
                 // Insert data into histories table
                 $.ajax({
@@ -132,8 +152,8 @@ $(document).ready(function() {
                       console.log(typeResponse);
               
                       // Hide the submit button
-                      document.getElementById("submitButton").style.display = "none";
-              
+                     // document.getElementById("submitButton").style.display = "none";
+                     $("#testSpinner").hide();
                       // Update the type name and description
                       var typeName = document.getElementById("typeName");
                       typeName.textContent = typeResponse[0].name;  //ovdje je name od type
