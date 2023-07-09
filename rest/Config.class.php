@@ -10,11 +10,11 @@ class Config{
     }
 
     public static function DB_PASSWORD(){
-        return Config::get_env("DB_PASSWORD", "root");
+        return Config::get_env("DB_PASSWORD", "69w33d420");
     }
 //DBNAME
     public static function DB_SCHEMA(){
-        return Config::get_env("DB_SCHEMA", "personalitytest"); 
+        return Config::get_env("DB_SCHEMA", "personalitydb"); 
     }
 
     public static function DB_PORT(){
