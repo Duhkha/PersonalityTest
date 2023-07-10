@@ -192,12 +192,19 @@ Flight::route('POST /login', function(){
         $user = $user[0];
         if($user['password'] == md5($login['password'])){
             unset($user['password']);
-            $user['is_admin'] = false;
+
+            if($user['status'] == 2) {
+              $user['is_admin'] = false;
+            } else {
+                $user['is_admin'] = true;
+            }
+            
             $jwt = JWT::encode($user, Config::JWT_SECRET(), 'HS256');
             Flight::json(['token' => $jwt]);
         }else{
             Flight::json(["message" => "Wrong password"], 401);
         }
+        
     }else{
         Flight::json(["message" => "User doesn't exist"], 404);
     }
