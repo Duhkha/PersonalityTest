@@ -7,6 +7,12 @@ $(document).ready(function () {
             url: 'rest/types',
             type: 'GET',
             dataType: 'json',
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader(
+                  "Authorization",
+                  localStorage.getItem("user_token")
+                );
+              },
             success: function (data) {
                 var html = '';
                 for (var i = 0; i < data.length; i++) {

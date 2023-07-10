@@ -6,6 +6,12 @@ $(document).ready(function () {
         $.ajax({
             url: 'rest/users',
             type: 'GET',
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader(
+                  "Authorization",
+                  localStorage.getItem("user_token")
+                );
+              },
             success: function (data) {
                 var html = '';
                 for (var i = 0; i < data.length; i++) {
@@ -68,6 +74,12 @@ $(document).ready(function () {
             $.ajax({
                 url: "rest/users",
                 type: "POST",
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader(
+                      "Authorization",
+                      localStorage.getItem("user_token")
+                    );
+                  },
                 data: $("#addUserForm").serialize(),
                 success: function () {
                     toastr.success("User added");

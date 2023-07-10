@@ -1,4 +1,5 @@
-var Utils = { 
+var Utils = {
+  /* 
     datatable: function (table_id, columns, data) { 
       if ($.fn.dataTable.isDataTable("#" + table_id)) { 
         $("#" + table_id) 
@@ -12,7 +13,7 @@ var Utils = {
         pageLength: 5, 
         lengthMenu: [2, 5, 10, 25, 50, "All"], 
       });
-    },
+    },*/
   
     parseJwt: function (token) {
       if (token) { 

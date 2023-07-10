@@ -1,6 +1,12 @@
 $.ajax({
     url: '/PersonalityTest/rest/types/',
     type: 'GET',
+    beforeSend: function (xhr) {
+      xhr.setRequestHeader(
+        "Authorization",
+        localStorage.getItem("user_token")
+      );
+    },
     success: function(data) {
         console.log(data);
         $.each(data, function(index, jobType) {
