@@ -15,8 +15,10 @@ require "services/AnswerService.php";
 require "services/HistoryService.php";
 require "services/TypeService.php";
 require "services/ResultService.php";
+
 use Firebase\JWT\JWT;
 use Firebase\JWT\Key;
+
 /*
 Flight::route('/', function () {
     echo 'hello world!';
@@ -29,9 +31,9 @@ Flight::route('/*', function(){
     });
 */
 // middleware method for login
-/*
+
 Flight::route('/*', function(){
-    Flight::json(['request'=>Flight::request()]);
+    //Flight::json(['request'=>Flight::request()]);
     $path = Flight::request()->url;
     if ($path == '/login' || $path == '/signup' || $path == '/docs.json' ) return TRUE; // exclude login route from middleware
   
@@ -50,7 +52,7 @@ Flight::route('/*', function(){
       }
     }
   });
-  */
+  
 
 Flight::register('user_service',"UserService");
 Flight::register('question_service',"QuestionService");
