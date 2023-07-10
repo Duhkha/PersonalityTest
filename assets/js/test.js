@@ -8,6 +8,12 @@ $(document).ready(function() {
     $.ajax({
       url: "/PersonalityTest/rest/test", //replace
       method: "GET",
+      beforeSend: function (xhr) {
+        xhr.setRequestHeader(
+          "Authorization",
+          localStorage.getItem("user_token")
+        );
+      },
       success: function(response) {
         
         console.log(response);
@@ -109,6 +115,12 @@ $(document).ready(function() {
               url: "/PersonalityTest/rest/results", 
               method: "POST",
               contentType: "application/json",
+              beforeSend: function (xhr) {
+                xhr.setRequestHeader(
+                  "Authorization",
+                  localStorage.getItem("user_token")
+                );
+              },
               data: JSON.stringify({
                 categoryApoints: categoryApoints,
                 categoryBpoints: categoryBpoints,
@@ -131,6 +143,12 @@ $(document).ready(function() {
                   url: "/PersonalityTest/rest/histories", // Replace 
                   method: "POST",
                   contentType: "application/json",
+                  beforeSend: function (xhr) {
+                    xhr.setRequestHeader(
+                      "Authorization",
+                      localStorage.getItem("user_token")
+                    );
+                  },
                   data: JSON.stringify({
                     userid: userId,
                     typeid: typeId,
@@ -148,6 +166,12 @@ $(document).ready(function() {
                 $.ajax({
                   url: "/PersonalityTest/rest/types/" + typeId, // Replace 
                   method: "GET",
+                  beforeSend: function (xhr) {
+                    xhr.setRequestHeader(
+                      "Authorization",
+                      localStorage.getItem("user_token")
+                    );
+                  },
                   success: function(typeResponse) {
                       console.log(typeResponse);
               

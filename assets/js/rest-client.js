@@ -6,7 +6,7 @@ var RestClient = {
         beforeSend: function (xhr) { 
             xhr.setRequestHeader( 
                 "Authorization",
-            "Bearer" + localStorage.getItem("user_token") 
+             localStorage.getItem("user_token") 
           );
         },
         success: function (data) { 
