@@ -198,7 +198,7 @@ Flight::route('POST /login', function(){
             } else {
                 $user['is_admin'] = true;
             }
-            
+
             $jwt = JWT::encode($user, Config::JWT_SECRET(), 'HS256');
             Flight::json(['token' => $jwt]);
         }else{
@@ -289,6 +289,15 @@ Flight::route('POST /users/login', function(){
     }
 });
 */
+
+
+/**
+  * @OA\Get(path="/users/{id}/history", tags={"users"}, security={{"ApiKeyAuth": {}}},
+  *     @OA\Parameter(in="path", name="id", example=1, description="User History"),
+  *     @OA\Response(response="200", description="Fetch individual user history")
+  * )
+  */
+
 Flight::route('GET /users/@id/history', function($id){
     Flight::json(Flight::history_service()->get_by_user_id($id));
 });
