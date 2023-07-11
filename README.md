@@ -3,3 +3,16 @@
 Welcome to the Personality Test crafter by Zehra Grbović, Ilma Gusinac, and Ismar Kovačević! 
 
 Tech Persona is a web application designed for the course Introduction to Web Programming. Unveil your IT role through our engaging Personality Test. By answering questions, gain insights into your personality and discover the perfect IT role for you. Our project seamlessly combines backend (PHP) and frontend (JS/HTML/CSS) development to provide an intuitive user experience. Unleash your true potential with Tech Persona and find your ideal IT role today.
+
+Link of deployed website: https://orca-app-nrvnt.ondigitalocean.app/
+
+Login credidentials:
+
+    1. Admin:
+        - email: aaa@gmail.com
+        - password: aaa123
+
+    2. User:
+        - email: bbb@gmail.com
+        - password: bbb123
+
