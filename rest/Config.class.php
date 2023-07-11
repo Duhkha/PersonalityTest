@@ -34,23 +34,23 @@ class Config{
 
 class Config{
     public static function DB_HOST(){
-        return Config::get_env("DB_HOST", "localhost");
+        return Config::get_env("DB_HOST", "personalitydb-do-user-14363873-0.b.db.ondigitalocean.com");
     }
 
     public static function DB_USERNAME(){
-        return Config::get_env("DB_USERNAME", "root");
+        return Config::get_env("DB_USERNAME", "doadmin");
     }
 
     public static function DB_PASSWORD(){
-        return Config::get_env("DB_PASSWORD", "root");
+        return Config::get_env("DB_PASSWORD", "AVNS_6DgsprY0TfOwERacYU6");
     }
 //DBNAME
     public static function DB_SCHEMA(){
-        return Config::get_env("DB_SCHEMA", "personalitytest"); 
+        return Config::get_env("DB_SCHEMA", "defaultdb"); 
     }
 
     public static function DB_PORT(){
-        return Config::get_env("DB_PORT", "3306");
+        return Config::get_env("DB_PORT", "25060");
     }
 
     public static function JWT_SECRET(){

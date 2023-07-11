@@ -21,7 +21,15 @@ class BaseDao{
         $dbname = Config::DB_SCHEMA();
         $port = Config::DB_PORT();
     
-        $this-> conn = new PDO("mysql:host=$servername;dbname=$dbname;port=$port", $username, $password);
+        $options = array(
+        	PDO::MYSQL_ATTR_SSL_CA => 'https://cloud.digitalocean.com/9558bfb6-8b04-40c4-a777-f370d81695d2',
+        	PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT => false,
+
+        );
+
+        $this-> conn = new PDO("mysql:host=$servername;dbname=$dbname;port=$port", $username, $password, $options);
+
+        //$this-> conn = new PDO("mysql:host=$servername;dbname=$dbname;port=$port", $username, $password);
         $this-> conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
       //  echo "Connected successfully";
         } catch(PDOException $e) {
