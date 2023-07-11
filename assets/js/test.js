@@ -131,7 +131,7 @@ $(document).ready(function() {
                 
                 console.log(response);
                 const typeId = getCategoryTypeId(categoryApoints, categoryBpoints, categoryCpoints, categoryDpoints);
-                const userId = 2; // Replace with actual user ID
+                const userId = getUserIdFromToken();
                 const resultId = response.data.id; 
       
 
@@ -230,6 +230,17 @@ $(document).ready(function() {
       
        
         return typeId;
+      }
+
+      function getUserIdFromToken() {
+        const userToken = localStorage.getItem("user_token");
+        // Decode the JWT to extract the payload
+        const tokenPayload = atob(userToken.split(".")[1]);
+        // Parse the payload as JSON
+        const payloadJson = JSON.parse(tokenPayload);
+        // Extract the user ID from the payload
+        const userId = payloadJson.userid;
+        return userId;
       }
       
       
