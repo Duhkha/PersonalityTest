@@ -1,14 +1,7 @@
 <?php
 
-//require 'flight/Flight.php';
 require "../vendor/autoload.php";
-/*
-require "dao/BaseDao.class.php";
-require "dao/UserDao.class.php";
-*/
-/*
-require "dao/UserDao.php"; //new
-*/
+
 require "services/UserService.php";
 require "services/QuestionService.php";
 require "services/AnswerService.php";
@@ -33,9 +26,8 @@ Flight::route('/*', function(){
 // middleware method for login
 
 Flight::route('/*', function(){
-    //Flight::json(['request'=>Flight::request()]);
     $path = Flight::request()->url;
-    if ($path == '/login' || $path == '/signup' || $path == '/docs.json' ) return TRUE; // exclude login route from middleware
+    if ($path == '/login' || $path == '/signup' || $path == '/docs.json' ) return TRUE; // exclude login and signup route from middleware
   
     $headers = getallheaders();
     if (@!$headers['Authorization']){
@@ -60,7 +52,6 @@ Flight::register('answer_service',"AnswerService");
 Flight::register('history_service',"HistoryService");
 Flight::register('type_service',"TypeService");
 Flight::register('result_service',"ResultService");
-//Flight::register('userDao', "UserDao"); //new
 
 require_once 'routes/UserRoutes.php';
 require_once 'routes/QuestionRoutes.php';
@@ -68,7 +59,7 @@ require_once 'routes/AnswerRoutes.php';
 require_once 'routes/HistoryRoutes.php';
 require_once 'routes/TypeRoutes.php';
 require_once 'routes/ResultRoutes.php';
-require_once 'routes/TestRoute.php'; //without s :/
+require_once 'routes/TestRoute.php'; 
 
 /* REST API documentation endpoint */
 Flight::route('GET /docs.json', function(){

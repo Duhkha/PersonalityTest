@@ -1,6 +1,3 @@
-/**
-   * Ilma: ovo sam ostavila kako jeste dok ne vidimo šta ćemo
-   */
 (function() {
   "use strict";
 

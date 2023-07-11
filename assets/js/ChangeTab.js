@@ -46,7 +46,6 @@ var ChangeTab = {
     },
 
     goToFAQ: function () {
-       // ProductService.showProduct(productid);
        $("#FAQDiv").css({ "display": "block" });
        $("#TestDiv").css({ "display": "none" });
        $("#TypesDiv").css({ "display": "none" });
@@ -57,7 +56,7 @@ var ChangeTab = {
        $("#AdminTypeDiv").css({ "display": "none" });
     },
 
-    goToAbout: function () { //goToAbout: function (user_id) {
+    goToAbout: function () { 
         $("#AboutDiv").css({ "display": "block" });
         $("#TestDiv").css({ "display": "none" });
         $("#TypesDiv").css({ "display": "none" });
@@ -68,7 +67,7 @@ var ChangeTab = {
         $("#AdminTypeDiv").css({ "display": "none" });
     },
 
-    goToAdminUser: function () { //goToAbout: function (user_id) {
+    goToAdminUser: function () { 
         $("#AdminUserDiv").css({ "display": "block" });
         $("#AdminTypeDiv").css({ "display": "none" });
         $("#AboutDiv").css({ "display": "none" });
@@ -78,7 +77,7 @@ var ChangeTab = {
         $("#FAQDiv").css({ "display": "none" });
         $("#HeroDiv").css({ "display": "none" });
     },
-    goToAdminTypes: function () { //goToAbout: function (user_id) {
+    goToAdminTypes: function () { 
         $("#AdminTypeDiv").css({ "display": "block" });
         $("#AdminUserDiv").css({ "display": "none" });
         $("#AboutDiv").css({ "display": "none" });

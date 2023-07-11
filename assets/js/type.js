@@ -1,5 +1,5 @@
 $.ajax({
-    url: '/PersonalityTest/rest/types/',
+    url: 'rest/types/',
     type: 'GET',
     beforeSend: function (xhr) {
       xhr.setRequestHeader(

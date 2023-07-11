@@ -37,8 +37,6 @@
   <link rel="stylesheet" href="assets/css/spapp.css">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="assets/js/utils.js"></script>
-  <script src="assets/js/rest-client.js"></script>
-  <!--<script src="config.js"></script>-->
 
 </head>
 
@@ -47,9 +45,7 @@
 <body>
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top d-flex align-items-center">
-    <!--<header id="header" class="fixed-top d-flex align-items-center header-transparent">-->
     <div class="container d-flex align-items-center justify-content-between">
-      <!--<div class="container d-flex align-items-center justify-content-between">-->
 
       <div class="logo">
         <h1><a href="index.html"><span>Tech Persona</span></a></h1>
@@ -58,13 +54,6 @@
       <nav id="navbar" class="navbar" >
         <ul id="tabs">
           <a class="nav-link scrollto active" href="#hero" onclick="ChangeTab.goToHome();"></a> 
-
-         <!-- <li></li>-->
-          <!--
-          <li><a class="nav-link scrollto" href="#test" >Test</a></li>
-          <li><a class="nav-link scrollto" href="#features" >Features</a></li>
-          <li><a class="nav-link scrollto" href="#faq" > FAQ </a> </li>
-          <li><a class="nav-link scrollto" href="#about" >About</a></li>-->
     </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav> <!-- .navbar -->
@@ -143,7 +132,6 @@
     <button id="submitButton" >Submit</button>
     <p id="errorMsg" style="display: none; color: red; text-align: center;">Please answer all questions before submitting.</p>
   </div>
-
 <!-- End test Section -->
 
 
@@ -216,10 +204,10 @@
         </div>
 
       </div>
-    </section><!-- End Testimonials Section -->
+    </section>
+    <!-- End Testimonials Section -->
 
             <!-- ======= Counts Section ======= -->
-<!--        <section id="features" class="counts">     -->
           <section id="counts" class="counts">
              <div class="container">
        
@@ -270,7 +258,7 @@
     <section id="faq" class="faq section-bg">
       <div class="container">
         
-        <div class="section-title" data-aos="fade-up"> <!--make more space at the top-->
+        <div class="section-title" data-aos="fade-up"> 
           <p></p>
         </div>
 
@@ -422,14 +410,6 @@
   </div>
   <!-- End About Section -->
 
-  <!--Admin Panel - Users-->
-  <!-- 
-  <div id="AdminUserDiv" style="display:none">
-      <section id="adminusers" >
-        
-      </section>
-    </div>--> 
-  <!--End Admin Panel - Users-->
   <!-- Admin Panel - Users -->
 <div id="AdminUserDiv" style="display:none">
   <section id="adminusers" class="container">
@@ -443,9 +423,7 @@
         <!-- Table content will be populated dynamically -->
       </table>
     </div>
-    <!-- Content from adminuser.html goes here -->
     <!--Add modal-->
-    <!-- Add modal -->
     <button type="button" class="btn btn-info" data-toggle="modal" data-target="#addUserModal">Add user</button>
 
     <div class="modal fade" id="addUserModal" role="dialog">
@@ -489,7 +467,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
     <script src="assets/js/admin-user.js"></script>
   </section>
 </div>
@@ -499,7 +476,6 @@
  <!--Admin Panel - Types-->
 <div id="AdminTypeDiv" style="display:none">
   <section id="admintypes" class="container">
-    <!-- Include the content of admintype.html here -->
     <div class="table-responsive">
       <div class="section-title" data-aos="fade-up">
         <h2>ADMIN</h2>
@@ -593,35 +569,6 @@
 
 
   <script>
-    /*
-    var nav =
-      '<li class="nav-item">' +
-      '<a class="nav-link scrollto" href="#test" onclick="ChangeTab.goToTest();">Test</a>' +
-      "</li>" +
-      '<li class="nav-item">' +
-      '<a class="nav-link scrollto" href="#types" onclick="ChangeTab.goToTypes();">Types</a>' +
-      "</li>" +
-      '<li class="nav-item">' +
-      '<a class="nav-link scrollto" href="#features" onclick="ChangeTab.goToFeatures();" >Features</a>' +
-      "</li>" +
-      '<li class="nav-item">' +
-      '<a class="nav-link scrollto" href="#faq" onclick="ChangeTab.goToFAQ();" >FAQ</a>' +
-      "</li>" +
-      '<li class="nav-item">' +
-      '<a class="nav-link scrollto" href="#about" onclick="ChangeTab.goToAbout();" >About</a>' +
-      "</li>";
-    $("#tabs").html(nav);
-
-    var main =
-      '<section id="test"></section>' +
-      '<section id="types"></section>' +
-      '<section id="features"></section>' +
-      '<section id="faq"></section>' +
-      '<section id="about"></section>' +
-      '<section id="hero"></section>';
-    $("#spapp").html(main);
-*/
-
 
 var token = localStorage.getItem("user_token");
 if (token) {

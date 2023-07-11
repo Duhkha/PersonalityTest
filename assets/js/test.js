@@ -6,7 +6,7 @@ $(document).ready(function() {
   
 
     $.ajax({
-      url: "/PersonalityTest/rest/test", //replace
+      url: "rest/test", //replace
       method: "GET",
       beforeSend: function (xhr) {
         xhr.setRequestHeader(
@@ -112,7 +112,7 @@ $(document).ready(function() {
 
 
             $.ajax({
-              url: "/PersonalityTest/rest/results", 
+              url: "rest/results", 
               method: "POST",
               contentType: "application/json",
               beforeSend: function (xhr) {
@@ -140,7 +140,7 @@ $(document).ready(function() {
                 
                 // Insert data into histories table
                 $.ajax({
-                  url: "/PersonalityTest/rest/histories", // Replace 
+                  url: "rest/histories", // Replace 
                   method: "POST",
                   contentType: "application/json",
                   beforeSend: function (xhr) {
@@ -164,7 +164,7 @@ $(document).ready(function() {
                 });
 
                 $.ajax({
-                  url: "/PersonalityTest/rest/types/" + typeId, // Replace 
+                  url: "rest/types/" + typeId, // Replace 
                   method: "GET",
                   beforeSend: function (xhr) {
                     xhr.setRequestHeader(
