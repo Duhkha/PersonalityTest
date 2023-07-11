@@ -9,7 +9,12 @@ use Firebase\JWT\Key;
  * )
  */
 Flight::route("GET /results", function(){
+  $user = Flight::get('user');
+  if(isset($user)){
     Flight::json(Flight::result_service()->get_all());
+  } else {
+    Flight::json(["message" => "User token doesn't exist."], 404);
+  };
 });
 
 /**
@@ -24,7 +29,12 @@ Flight::route("GET /results", function(){
   * )
   */
 Flight::route("GET /result_by_id", function(){
+  $user = Flight::get('user');
+  if(isset($user)){
     Flight::json(Flight::result_service()->get_by_id(Flight::request()->query['id']));
+  } else {
+    Flight::json(["message" => "User token doesn't exist."], 404);
+  };
  });
 
   /**
@@ -34,7 +44,12 @@ Flight::route("GET /result_by_id", function(){
   * )
   */
 Flight::route("GET /results/@id", function($id){
+  $user = Flight::get('user');
+  if(isset($user)){
     Flight::json(Flight::result_service()->get_by_id($id));
+  } else {
+    Flight::json(["message" => "User token doesn't exist."], 404);
+  };
 });
 
  /**
@@ -54,8 +69,13 @@ Flight::route("GET /results/@id", function($id){
  * )
  */
 Flight::route("DELETE /results/@id", function($id){
+  $user = Flight::get('user');
+  if(isset($user)){
     Flight::result_service()->delete($id);
     Flight::json(['message'=>"result deleted successfully"]);
+  } else {
+    Flight::json(["message" => "User token doesn't exist."], 404);
+  };
 });
 
 /**
@@ -83,11 +103,15 @@ Flight::route("DELETE /results/@id", function($id){
 * )
 */
 Flight::route("POST /results", function(){
+  $user = Flight::get('user');
+  if(isset($user)){
     $request= FLight::request()->data->getData();
     Flight::json(['message'=>"result added successfully",
                   'data'=>Flight::result_service()->add($request)
                 ]);
-    
+  } else {
+        Flight::json(["message" => "User token doesn't exist."], 404);
+  };  
 });
 
 /**
@@ -116,11 +140,15 @@ Flight::route("POST /results", function(){
  * )
  */
 Flight::route("PUT /results/@id", function($id){
+  $user = Flight::get('user');
+  if(isset($user)){
     $result = Flight::request()->data->getData();
     Flight::json(['message'=>"result edit successfully",
                   'data'=>Flight::result_service()->update($result,$id)
                 ]);
-    
+  } else {
+        Flight::json(["message" => "User token doesn't exist."], 404);
+  };
 });
 
 

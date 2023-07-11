@@ -11,9 +11,12 @@ use Firebase\JWT\Key;
  */
 //works
 Flight::route('GET /users', function () {
-
-    Flight::json(Flight::user_service()->get_all());
-
+    $user = Flight::get('user');
+    if(isset($user)){
+        Flight::json(Flight::user_service()->get_all());
+    } else {
+        Flight::json(["message" => "User token doesn't exist."], 404);
+    };
 });
 
 /**
@@ -24,7 +27,12 @@ Flight::route('GET /users', function () {
   */
 //works
 Flight::route('GET /users/@id', function($id){
-    Flight::json(Flight::user_service()->get_by_id($id));
+    $user = Flight::get('user');
+    if(isset($user)){
+        Flight::json(Flight::user_service()->get_by_id($id));
+    } else {
+        Flight::json(["message" => "User token doesn't exist."], 404);
+    };
 });
 
 /**
@@ -39,7 +47,12 @@ Flight::route('GET /users/@id', function($id){
   * )
   */
 Flight::route('GET /user_by_id', function(){
-    Flight::json(Flight::user_service()->get_by_id(Flight::request()->query['id']));
+    $user = Flight::get('user');
+    if(isset($user)){
+        Flight::json(Flight::user_service()->get_by_id(Flight::request()->query['id']));
+    } else {
+        Flight::json(["message" => "User token doesn't exist."], 404);
+    };
  });
 
  /**
@@ -59,8 +72,13 @@ Flight::route('GET /user_by_id', function(){
  * )
  */
 Flight::route('DELETE /users/@id', function($id){
-    Flight::user_service()->delete($id);
-    Flight::json(['message'=>"User deleted successfully"]);
+    $user = Flight::get('user');
+    if(isset($user)){
+        Flight::user_service()->delete($id);
+        Flight::json(['message'=>"User deleted successfully"]);
+    } else {
+        Flight::json(["message" => "User token doesn't exist."], 404);
+    };
 });
 
  /**
@@ -89,11 +107,15 @@ Flight::route('DELETE /users/@id', function($id){
 */
 //works
 Flight::route('POST /users', function(){
-    $request= Flight::request()->data->getData();
-    Flight::json(['message'=>"User added successfully",
-                  'data'=>Flight::user_service()->add($request)
-                ]);
-    
+    $user = Flight::get('user');
+    if(isset($user)){
+        $request= Flight::request()->data->getData();
+        Flight::json(['message'=>"User added successfully",
+                    'data'=>Flight::user_service()->add($request)
+                    ]);
+    } else {
+        Flight::json(["message" => "User token doesn't exist."], 404);
+    };
 });
 
 /**
@@ -123,11 +145,15 @@ Flight::route('POST /users', function(){
  */
 //works
 Flight::route('PUT /users/@id', function($id){
-    $user= Flight::request()->data->getData();
-    Flight::json(['message'=>"User edit successfully",
-                  'data'=>Flight::user_service()->update($user,$id)
-                ]);
-    
+    $user = Flight::get('user');
+        if(isset($user)){
+        $user= Flight::request()->data->getData();
+        Flight::json(['message'=>"User edit successfully",
+                    'data'=>Flight::user_service()->update($user,$id)
+                    ]);
+    } else {
+        Flight::json(["message" => "User token doesn't exist."], 404);
+    };
 });
 
 /**
@@ -231,7 +257,12 @@ Flight::route('POST /signup', function(){
   */
 
 Flight::route('GET /users/@id/history', function($id){
-    Flight::json(Flight::history_service()->get_by_user_id($id));
+    $user = Flight::get('user');
+    if(isset($user)){
+        Flight::json(Flight::history_service()->get_by_user_id($id));
+    } else {
+        Flight::json(["message" => "User token doesn't exist."], 404);
+    };
 });
 
 
