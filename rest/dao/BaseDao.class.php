@@ -11,7 +11,7 @@ class BaseDao{
     /**
     * Class constructor used to establish connection to db
     */
-    public function __construct($table_name, $id_column = 'id'){
+    public function __construct($table_name, $id_column){
         try {
         $this->table_name=$table_name;
         $this->id_column = $id_column;  // Save the ID column name
@@ -63,7 +63,7 @@ class BaseDao{
         return $entity;
     }
 
-    //works for user
+
     public function add($entity){
         
         $query = "INSERT INTO " . $this->table_name . " (";

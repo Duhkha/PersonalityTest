@@ -1,7 +1,6 @@
 <?php
 use Firebase\JWT\JWT;
 use Firebase\JWT\Key;
-//require '../vendor/autoload.php';
 
 /**
  * @OA\Get(path="/questions", tags={"questions"}, security={{"ApiKeyAuth": {}}},
@@ -115,10 +114,8 @@ Flight::route("POST /questions", function(){
  *     )
  * )
  */
-//update
 Flight::route("PUT /questions/@id", function($id){
     $question = Flight::request()->data->getData();
-    #$response=$users_dao->update($user,$id);
     Flight::json(['message'=>"Question edit successfully",
                   'data'=>Flight::question_service()->update($question,$id)
                 ]);

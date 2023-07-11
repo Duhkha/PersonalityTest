@@ -18,14 +18,6 @@ Flight::route('GET /test', function(){
     Flight::json($questions);
 });
 
-
-Flight::route('POST /test_results', function(){
-    $request = Flight::request()->data->getData();
-    $results = Flight::result_service()->add_results($request['userid'], $request['categoryApoints'], $request['categoryBpoints'], $request['categoryCpoints'], $request['categoryDpoints']);
-    Flight::json(['message'=>"Test results saved successfully", 'data'=> $results]);
-});
-
-
 /**
  * @OA\Post(
  *     path="/test_results",
@@ -63,20 +55,6 @@ Flight::route('POST /test_results', function(){
     $history_id = Flight::history_service()->add(['userid' => $request['user_id'], 'typeid' => $type_id, 'resultid' => $results_id]);
     Flight::json(['message'=>"Test results saved successfully", 'data'=> $history_id]);
 });
-
-
-
-
-function calculate_type_id($categoryApoints, $categoryBpoints, $categoryCpoints, $categoryDpoints) {
-    $type_id = "";
-
-    $type_id .= ($categoryApoints > 0) ? "1" : "0";
-    $type_id .= ($categoryBpoints > 0) ? "1" : "0";
-    $type_id .= ($categoryCpoints > 0) ? "1" : "0";
-    $type_id .= ($categoryDpoints > 0) ? "1" : "0";
-
-    return $type_id;
-}
 
 
 ?>

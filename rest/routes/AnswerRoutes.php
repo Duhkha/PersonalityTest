@@ -1,7 +1,6 @@
 <?php
 use Firebase\JWT\JWT;
 use Firebase\JWT\Key;
-//require '../vendor/autoload.php';
 
 /**
  * @OA\Get(path="/answers", tags={"answers"}, security={{"ApiKeyAuth": {}}},

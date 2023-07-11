@@ -1,7 +1,6 @@
 <?php
 use Firebase\JWT\JWT;
 use Firebase\JWT\Key;
-//require '../vendor/autoload.php';
 
 /**
  * @OA\Get(path="/histories", tags={"histories"}, security={{"ApiKeyAuth": {}}},
@@ -116,10 +115,8 @@ Flight::route("POST /histories", function(){
  *     )
  * )
  */
-//update
 Flight::route("PUT /histories/@id", function($id){
     $history = Flight::request()->data->getData();
-    #$response=$users_dao->update($user,$id);
     Flight::json(['message'=>"history edit successfully",
                   'data'=>Flight::history_service()->update($history,$id)
                 ]);

@@ -1,7 +1,6 @@
 <?php
 use Firebase\JWT\JWT;
 use Firebase\JWT\Key;
-//require '../vendor/autoload.php';
 
 /**
  * @OA\Get(path="/results", tags={"results"}, security={{"ApiKeyAuth": {}}},
@@ -116,10 +115,8 @@ Flight::route("POST /results", function(){
  *     )
  * )
  */
-//update
 Flight::route("PUT /results/@id", function($id){
     $result = Flight::request()->data->getData();
-    #$response=$users_dao->update($user,$id);
     Flight::json(['message'=>"result edit successfully",
                   'data'=>Flight::result_service()->update($result,$id)
                 ]);
