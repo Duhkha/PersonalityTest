@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8">
     <title>Registration Form</title>
@@ -9,10 +10,10 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
-
     <script src="assets/js/signup-service.js"></script>
 
 </head>
+
 <body>
     <div class="container">
         <div class="form-container">
@@ -31,203 +32,8 @@
             <p class="login-link">You have an account? <a href="login.html">Login</a></p>
         </div>
     </div>
-    <script type="text/javascript">
-       // SignupService.init();
-      </script>
-    </body>
-    </html>
-  <!--
-    <script>
-        $(document).ready(function() {
-            $("#addUserForm").validate({
-                rules: {
-                    name: "required",
-                    surname: "required",
-                    email: {
-                        required: true,
-                        email: true
-                    },
-                    password: {
-                        required: true,
-                        minlength: 6
-                    }
-                },
-                messages: {
-                    name: "Please enter your first name",
-                    surname: "Please enter your last name",
-                    email: {
-                        required: "Please enter your email address",
-                        email: "Please enter a valid email address"
-                    },
-                    password: {
-                        required: "Please enter a password",
-                        minlength: "Your password must be at least 6 characters long"
-                    }
-                },
-                submitHandler: function(form) {
-                    $.post("rest/users", $("#addUserForm").serialize())
-                        .done(function() {
-                            toastr.success("User added");
-                            form.reset();
-                        })
-                        .fail(function() {
-                            toastr.error("User not added");
-                        });
-                }
-            });
-        });
-    </script>
--->
-<!--
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>Registration Form</title>
-    <link rel="stylesheet" href="assets/css/forms.css">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
-</head>
-<body>
-    <div class="container">
-        <div class="form-container">
-            <h2 class="title">Registration Form</h2>
-            <form action="#" id="addUserForm">
-                <label for="name">First Name</label>
-                <input type="text" id="name" name="name" placeholder="First name" required>
-                <label for="surname">Last Name</label>
-                <input type="text" id="surname" name="surname" placeholder="Last name">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" placeholder="name@last.com">
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;" required>
-                <button type="submit" class="btn-get-started">Register</button>
-            </form>
-            <p class="login-link">You have an account? <a href="login.html">Login</a></p>
-        </div>
-    </div>
-
-    <script>
-        $(document).ready(function() {
-            $("#addUserForm").validate({
-                rules: {
-                    name: "required",
-                    surname: "required",
-                    email: {
-                        required: true,
-                        email: true
-                    },
-                    password: {
-                        required: true,
-                        minlength: 6
-                    }
-                },
-                messages: {
-                    name: "Please enter your first name",
-                    surname: "Please enter your last name",
-                    email: {
-                        required: "Please enter your email address",
-                        email: "Please enter a valid email address"
-                    },
-                    password: {
-                        required: "Please enter a password",
-                        minlength: "Your password must be at least 6 characters long"
-                    }
-                },
-                submitHandler: function(form) {
-                    $.post("rest/users", $("#addUserForm").serialize())
-                        .done(function() {
-                            toastr.success("User added");
-                            form.reset();
-                        })
-                        .fail(function() {
-                            toastr.error("User not added");
-                        });
-                }
-            });
-        });
-    </script>
+    
 </body>
-</html>
--->
-<!--
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>Registration Form</title>
-    <link rel="stylesheet" href="assets/css/forms.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
-</head>
-<body>
-    <div class="container">
-        <div class="form-container">
-            <h2 class="title">Registration Form</h2>
-            <form action="#" id="addUserForm">
-                <label for="name">First Name</label>
-                <input type="text" id="name" name="name" placeholder="First name" required>
-                <label for="surname">Last Name</label>
-                <input type="text" id="surname" name="surname" placeholder="Last name">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" placeholder="name@last.com">
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;" required>
-                <button type="submit" class="btn-get-started">Register</button>
-            </form>
-            <p class="login-link">You have an account? <a href="login.html">Login</a></p>
-        </div>
-    </div>
 
-    <script>
-        $(document).ready(function() {
-            $("#addUserForm").validate({
-                rules: {
-                    name: "required",
-                    surname: "required",
-                    email: {
-                        required: true,
-                        email: true
-                    },
-                    password: {
-                        required: true,
-                        minlength: 6
-                    }
-                },
-                messages: {
-                    name: "Please enter your first name",
-                    surname: "Please enter your last name",
-                    email: {
-                        required: "Please enter your email address",
-                        email: "Please enter a valid email address"
-                    },
-                    password: {
-                        required: "Please enter a password",
-                        minlength: "Your password must be at least 6 characters long"
-                    }
-                },
-                submitHandler: function(form) {
-                    $.post("rest/users", $("#addUserForm").serialize())
-                        .done(function() {
-                            toastr.success("User added");
-                            form.reset();
-                        })
-                        .fail(function() {
-                            toastr.error("User not added");
-                        });
-                }
-            });
-        });
-    </script>
-</body>
 </html>
--->
+
